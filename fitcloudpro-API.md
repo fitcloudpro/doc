@@ -1462,9 +1462,11 @@ Weather{
 ```
 
 ## 8.6 表盘UI样式
+
 接口名称：/style/list
 接口作用：查询当前版本支持的表盘样式
 接口参数：
+
 |参数|类型|必填|说明| 
 |-|-|-|-|
 |hardwareInfo|String|是|硬件信息|
@@ -1484,4 +1486,5 @@ UIVersion {
     String appUrl;
     String appRemark;
     List<UIStyle> styles;
+}    
 ```
