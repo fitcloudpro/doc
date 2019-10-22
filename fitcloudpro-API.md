@@ -2,53 +2,12 @@
 
 [TOC]
 
-#一、更新日志
-2019-06-06: 更新部分接口描述，6.17，6.18（*）
-2019-05-28: 更新部分接口描述，5.1.1，6.8，6.12（*）
-2019-04-19：sendAuthCode接口修改，获取好友列表结果修改
-2019-04-16：亲友数据接口修改
-2019-04-07：亲友数据接口修改
-2019-03-17：亲友数据接口 
+# 一、更新日志
+See git history
 
-2019-02-21：心电接口部分修改 
-5.7.1上传心电数据修改，心电详情改为List类型，并增加其他字段。 
-5.7.2获取某段日期的心电数据修改，startDate改为startTime，endDate改为endTime 
-新增5.7.4获取心电报告接口
+# 二、通用说明
 
-2019-01-28:
-/public/overSeaWeather 国外天气接口
-
-2019-01-21:
-/wxsport/getQrCode 微信运动接口
-
-2018-12-25:
-syncTargetConfig 接口参数增加两字段
-
-2018-12-23:
-changePassword 接口参数更新
-
-2018-11-23:
-睡眠数据增加soberSleep, status含义修正，查询接口改成startTime/endTime
-增加修改密码接口:changePassword
-
-2018-10-16:
-调整血压/血氧接口和心率一致
-
-2018-09-18:
-增加字段用户绑定设备名称
-
-2018-08-25：
-增加接口：判断用户资料是否已经设置
-
-2018-08-19：
-创建初始版本
-
-2018-05-27：
-创建初始版本
-
-#二、通用说明
-
-##2.1 接口数据格式
+## 2.1 接口数据格式
 本文档接口数据格式沿用旧服务器格式，采用HTTP **POST** 请求方式，返回数据格式统一为JSON。
 
 返回数据例子如下：
@@ -91,7 +50,7 @@ changePassword 接口参数更新
 }
 ```
 
-##2.2 错误代码
+## 2.2 错误代码
 
     1001 系统错误
     1002 未授权
@@ -103,8 +62,8 @@ changePassword 接口参数更新
     1008 用户在其他地方登录，token失效
     1009 Refresh Token失效
     
-#三、Token
-##3.1 获取token
+# 三、Token
+## 3.1 获取token
 用户登录后，将获得token，用于请求与用户关联的数据。
 ```
 Token{
@@ -121,7 +80,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 > Authorization: Bearer xxxxxxxxxx
 
 
-##3.3 刷新token
+## 3.3 刷新token
 接口名称：/auth/refreshToken
 接口作用：刷新token
 接口参数：
@@ -137,8 +96,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |data|String|Token的JSON对象|
 
 
-#四、用户接口
-##4.1 注册
+# 四、用户接口
+## 4.1 注册
 接口名称：/auth/register
 接口作用：用户注册。根据checkAuthCode参数，有需要验证码和不需要验证码两种注册方式。
 接口参数：
@@ -158,7 +117,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|Token的JSON对象|
 
-##4.2 获取验证码
+## 4.2 获取验证码
 接口名称：/auth/requestAuthCode
 接口作用：获取验证码，可以用于注册，找回密码，绑定手机等。
 接口参数：
@@ -173,7 +132,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##4.3 检测用户是否存在
+## 4.3 检测用户是否存在
 接口名称：/auth/checkExist
 接口作用：检测用户是否已经存在
 接口参数：
@@ -189,7 +148,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|int|0表示不存在，1表示已存在。|
 		
-##4.4 账号登录
+## 4.4 账号登录
 接口名称：/auth/login
 接口作用：使用手机号或者邮箱登录
 接口参数：
@@ -207,7 +166,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|Token的JSON对象|
 
-##4.5 第三方平台登录
+## 4.5 第三方平台登录
 接口名称：/auth/login2
 接口作用：使用QQ，微信等第三方平台登录。如果是第一次使用该平台账号登录，自动完成注册功能。
 接口参数：
@@ -225,7 +184,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|Token的JSON对象|
 
-##4.6 重新设置密码
+## 4.6 重新设置密码
 接口名称：/auth/resetPassword
 接口作用：用于忘记密码时，重新设置密码。虽然邮箱注册时不需要验证码，但是邮箱找回密码时，需要验证码。
 接口参数：
@@ -242,7 +201,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##4.7 修改密码
+## 4.7 修改密码
 接口名称：/user/changePassword
 接口作用：用于修改密码。
 接口参数：
@@ -257,7 +216,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##4.8 户账号设置完成情况
+## 4.8 户账号设置完成情况
 接口名称：/user/profileStatus
 接口作用：判断用户账号资料设置情况
 接口参数：
@@ -285,7 +244,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|int|0，没有设置，1，已经设置。|
 
-##4.9 绑定/换绑手机号/邮箱
+## 4.9 绑定/换绑手机号/邮箱
 接口名称：/user/rebind
 接口作用：绑定手机号和邮箱，目前APP原型图上邮箱绑定时发送一个链接到用户邮箱，用户点击完成邮箱的绑定。这里还是全部改成验证码吧，统一一下方便点。
 接口参数：
@@ -301,7 +260,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##4.10 设置用户身份标志
+## 4.10 设置用户身份标志
 接口名称：/user/setIdentity
 接口作用：设置用户的身份ID，只允许设置一次。
 接口参数：
@@ -315,7 +274,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##4.11 同步用户资料
+## 4.11 同步用户资料
 接口名称：/user/syncUserInfo
 接口作用：同步本地用户信息到服务器，服务器对比资料更新时间，在确定是否需要覆盖旧的数据。请求成功后，服务器其需要返回所有用户信息。
 接口参数：
@@ -354,7 +313,7 @@ User{
 }
 ```
 
-##4.12 同步用户单位配置
+## 4.12 同步用户单位配置
 接口名称：/user/syncUnitConfig
 接口作用：同步用户的单位配置。
 接口参数：
@@ -379,7 +338,7 @@ UnitConfig{
 }
 ```
 
-##4.13 同步用户运动目标配置
+## 4.13 同步用户运动目标配置
 接口名称：/user/syncTargetConfig
 接口作用：同步用户每日步数目标的配置。
 接口参数：
@@ -406,7 +365,7 @@ StepTargetConfig{
 }
 ```
 
-##4.14 同步用户绑定设备的配置
+## 4.14 同步用户绑定设备的配置
 接口名称：/user/syncBindDeviceConfig
 接口作用：同步用户绑定设备的配置。
 接口参数：
@@ -435,9 +394,9 @@ BindDeviceConfig{
 }
 ```
 
-#五、数据接口
-##5.1 步数接口
-###5.1.1 上传步数数据
+# 五、数据接口
+## 5.1 步数接口
+### 5.1.1 上传步数数据
 接口名称：/step/upload
 接口作用：按日期划分，上传一组步数数据。
 接口参数：
@@ -468,7 +427,7 @@ StepRecord{
 
 ```
 
-###5.1.2 获取某段日期的步数数据
+### 5.1.2 获取某段日期的步数数据
 接口名称：/step/get
 接口作用：获取某段日期用户的步数总数据。如果startDate等于endDate，就相当于查询这一天的数据。
 接口参数：
@@ -485,11 +444,11 @@ StepRecord{
 |data|String|StepRecord的JSON数组|
 
 
-##5.2 睡眠接口
+## 5.2 睡眠接口
 APP使用时，如果token没有过期，并且之前有从服务器获取过睡眠数据，那么不再从服务器查询睡眠数据。因为本地数据肯定是最新的。
 如果token过期了，或者之前没有从服务器获取过睡眠数据，在上传完本地睡眠数据后，在从服务器拉取最新的睡眠数据，更新到本地，保证本地睡眠数据和服务器保持一致。
 
-###5.2.1 上传睡眠数据
+### 5.2.1 上传睡眠数据
 接口名称：/sleep/upload
 接口作用：上传一组睡眠数据。
 接口参数：
@@ -540,7 +499,7 @@ UpdateSleepRecord{
 
 ```
 
-###5.2.2 获取某段日期的睡眠数据
+### 5.2.2 获取某段日期的睡眠数据
 接口名称：/sleep/get
 接口作用：获取某段日期用户的睡眠总数据。
 接口参数：
@@ -571,8 +530,8 @@ SleepRecord{
 }
 ```
 
-##5.3 心率接口
-###5.3.1 上传心率数据
+## 5.3 心率接口
+### 5.3.1 上传心率数据
 接口名称：/heartrate/upload
 接口作用：上传一组心率数据
 接口参数：
@@ -616,7 +575,7 @@ UpdatedHeartRateRecord{
 }
 ```
 
-###5.3.2 获取某段日期的心率数据
+### 5.3.2 获取某段日期的心率数据
 接口名称：/heartrate/get
 接口作用：获取某段日期用户的心率数据。如果startDate等于endDate，就相当于查询这一天的数据。
 接口参数：
@@ -645,8 +604,8 @@ HeartRateRecord{
 }
 ```
 
-##5.4 血压接口
-###5.4.1 上传血压数据
+## 5.4 血压接口
+### 5.4.1 上传血压数据
 接口名称：/bloodpressure/upload
 接口作用：上传一组心率数据
 接口参数：
@@ -692,7 +651,7 @@ UpdatedBloodPressureRecord{
 }
 ```
 
-###5.4.2 获取某段日期的血压数据
+### 5.4.2 获取某段日期的血压数据
 接口名称：/bloodpressure/get
 接口作用：获取某段日期用户的心率数据。如果startDate等于endDate，就相当于查询这一天的数据。
 接口参数：
@@ -722,9 +681,9 @@ BloodPressureRecord{
 }
 ```
 
-##5.5 血氧接口
+## 5.5 血氧接口
 
-###5.5.1 上传血氧数据
+### 5.5.1 上传血氧数据
 接口名称：/oxygen/upload
 接口作用：上传一组血氧数据
 接口参数：
@@ -768,7 +727,7 @@ UpdatedOxygenRecord{
 }
 ```
 
-###5.5.2 获取某段日期的血氧数据
+### 5.5.2 获取某段日期的血氧数据
 接口名称：/oxygen/get
 接口作用：获取某段日期用户的血氧数据。如果startDate等于endDate，就相当于查询这一天的数据。
 接口参数：
@@ -798,10 +757,10 @@ OxygenRecord{
 ```
 
 
-##5.6 呼吸频率接口
+## 5.6 呼吸频率接口
 APP与服务器交互类似睡眠数据。
 
-###5.6.1 上传呼吸频率数据
+### 5.6.1 上传呼吸频率数据
 接口名称：/respiratoryrate/upload
 接口作用：上传一组呼吸频率数据
 接口参数：
@@ -825,7 +784,7 @@ RespiratoryRateItem{
 }
 ```
 
-###5.6.2 获取某段日期的呼吸频率数据
+### 5.6.2 获取某段日期的呼吸频率数据
 接口名称：/respiratoryrate/get
 接口作用：获取某段日期用户的呼吸频率数据。如果startDate等于endDate，就相当于查询这一天的数据。
 接口参数：
@@ -841,10 +800,10 @@ RespiratoryRateItem{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|RespiratoryRateItem的JSON数组|
 
-##5.7 心电接口
+## 5.7 心电接口
 APP与服务器交互类似睡眠数据。
 
-###5.7.1 上传心电数据
+### 5.7.1 上传心电数据
 接口名称：/ecg/upload 
 接口作用：上传一组用户的心电数据 
 接口参数：
@@ -883,7 +842,7 @@ UpdateEcgRecord{
 
 ```
 
-###5.7.2 获取某段日期的心电数据
+### 5.7.2 获取某段日期的心电数据
 接口名称：/ecg/get
 接口作用：获取某段日期用户的心电数据。如果startDate等于endDate，就相当于查询这一天的数据。因为心电详细数据非常大，所以这个接口不返回EcgRecord detail字段
 接口参数：
@@ -918,7 +877,7 @@ EcgRecord{
     String url;//报告地址
 }
 ```
-###5.7.3 获取某个心电的详细数据
+### 5.7.3 获取某个心电的详细数据
 接口名称：/ecg/getDetail
 接口作用：获取某个心点值的详细数据，需包含detail字段。
 接口参数：
@@ -933,7 +892,7 @@ EcgRecord{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|EcgRecord的JSON对象|
 
-###5.7.4  获取心电报告
+### 5.7.4  获取心电报告
 接口名称：/ecg/getReport
 接口作用：获取某个心电的心电报告
 接口参数：
@@ -949,10 +908,10 @@ EcgRecord{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|EcgReport的JSON数组|
 
-##5.8 运动接口
+## 5.8 运动接口
 APP与服务器交互类似睡眠数据。
 
-###5.8.1 同步运动目标
+### 5.8.1 同步运动目标
 接口名称：/sport/syncGoal
 接口作用：设置运动目标
 接口参数：
@@ -977,7 +936,7 @@ SportGoal{
 }
 ```
 
-###5.8.2 上传运动数据
+### 5.8.2 上传运动数据
 接口名称：/sport/upload
 接口作用：上传一组用户的运动数据
 接口参数：
@@ -1037,7 +996,7 @@ UpdateSportRecord{
 
 ```
 
-###5.8.3 获取运动数据
+### 5.8.3 获取运动数据
 接口名称：/sport/get
 接口作用：获取运动数据，支持分页查询
 接口参数：
@@ -1072,7 +1031,7 @@ SportRecord{
 }
 ```
 
-###5.8.4 获取运动详细
+### 5.8.4 获取运动详细
 接口名称：/sport/getDetail
 接口作用：获取运动详细数据
 接口参数：
@@ -1087,7 +1046,7 @@ SportRecord{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|SportRecord的JSON对象|
 
-###5.8.5 获取运动统计数据
+### 5.8.5 获取运动统计数据
 接口名称：/sport/getTotal
 接口作用：获取一年内运动的统计数据
 接口参数：
@@ -1112,8 +1071,8 @@ SportTotal:{
 }
 ```
 
-#六、好友接口
-##6.1 搜索用户
+# 六、好友接口
+## 6.1 搜索用户
 接口名称：/relation/search
 接口作用：根据输入的关键字，搜索好友。目前搜索只需要通过完全匹配identityId的方式搜索即可。
 接口参数：
@@ -1141,7 +1100,7 @@ User{
 }
 ```
 
-##6.2 检测用户是否已经为好友关系
+## 6.2 检测用户是否已经为好友关系
 接口名称：/relation/check
 接口作用：检测某个用户是否已经是好友。用于客户端界面展示逻辑，如果不是好友关系，显示添加好友界面，如果已经是好友关系，那么显示好友信息页面。
 接口参数：
@@ -1156,7 +1115,7 @@ User{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|int|0表示不是好友关系，1表示已经是好友关系。|
 
-##6.3 发送好友申请
+## 6.3 发送好友申请
 接口名称：/relation/send
 接口作用：申请好友。
 接口参数：
@@ -1172,7 +1131,7 @@ User{
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##6.4 接受好友申请
+## 6.4 接受好友申请
 接口名称：/relation/accept
 接口作用：接受好友申请。处理完后删除该条申请消息
 接口参数：
@@ -1186,7 +1145,7 @@ User{
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##6.5 拒绝好友申请
+## 6.5 拒绝好友申请
 接口名称：/relation/reject
 接口作用：拒绝好友申请。处理完后删除该条申请消息
 接口参数：
@@ -1200,7 +1159,7 @@ User{
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##6.6 删除好友
+## 6.6 删除好友
 接口名称：/relation/remove
 接口作用：删除好友。
 接口参数：
@@ -1214,7 +1173,7 @@ User{
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##6.7 修改备注名
+## 6.7 修改备注名
 接口名称：/relation/rename
 接口作用：修改好友备注名。
 接口参数：
@@ -1230,7 +1189,7 @@ User{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 
-##6.8 好友列表
+## 6.8 好友列表
 接口名称：/relation/list
 接口作用：查看好友列表。
 接口参数：
@@ -1245,7 +1204,7 @@ User{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|Friend的JSON数组|
 
-##6.9 好友信息
+## 6.9 好友信息
 接口名称：/relation/info
 接口作用：查看好友列表。
 接口参数：
@@ -1274,7 +1233,7 @@ Friend{
 }
 ```
 
-##6.10 获取申请消息列表
+## 6.10 获取申请消息列表
 接口名称：/relation/msg
 接口作用：获取申请消息列表。
 接口参数：
@@ -1300,7 +1259,7 @@ ApplyMsg{
 }
 ```
 
-##6.11 将某个时间点之前的消息设置为已读
+## 6.11 将某个时间点之前的消息设置为已读
 接口名称：/relation/readMsg
 接口作用：将某个时间点之前的消息设置为已读。因为app要显示有多少条未读消息，所以需要这个接口
 接口参数：
@@ -1362,8 +1321,8 @@ FriendTotalData{
 参考‘5.7.4 获取心电报告’。其他参数同上。
 
 
-#七、项目接口
-##7.1 版本检测
+# 七、项目接口
+## 7.1 版本检测
 接口名称：/public/checkVersion
 接口作用：检测是否用版本更新
 接口参数：
@@ -1391,9 +1350,9 @@ Version{
 
 ```
 
-#八、其他接口
+# 八、其他接口
 
-##8.1 意见反馈
+## 8.1 意见反馈
 接口名称：/public/feedback
 接口作用：提交意见反馈
 接口参数：
@@ -1414,7 +1373,7 @@ Version{
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
-##8.2 上传文件
+## 8.2 上传文件
 接口名称：/public/uploadFile
 接口作用：用户上传文件，这里只列出需要的参数数据。这个功能是否用ftp或者其他的方式做更好，开发者自行评估。
 接口参数：
@@ -1430,7 +1389,7 @@ Version{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|文件url|
 
-##8.3 天气查询
+## 8.3 天气查询
 接口名称：/public/getWeather
 接口作用：查询对应地区的天气。
 接口参数：
@@ -1456,7 +1415,7 @@ Weather{
 }
 ```
 
-##8.4 国外天气查询
+## 8.4 国外天气查询
 接口名称：/public/overSeaWeather
 接口作用：查询对应地区的天气。
 接口参数：
@@ -1500,4 +1459,29 @@ Weather{
   "deviceid": "gh_46aec1fa828f_d89a400019c7b773",
   "qrticket": "http://we.qq.com/d/AQDmZSnSdQ27qeUoyFGlHeGl7MCGW16o1cScaQpW",
 }
+```
+
+## 8.6 表盘UI样式
+接口名称：/style/list
+接口作用：查询当前版本支持的表盘样式
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|hardwareInfo|String|是|硬件信息|
+|uiNum|String|是|UI编号|
+|uiSerial|String|是|UI序号|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|UIVersion的JSON对象|
+
+```
+UIVersion {
+    String appNum;
+    String appUrl;
+    String appRemark;
+    List<UIStyle> styles;
 ```
