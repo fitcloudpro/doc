@@ -1469,7 +1469,7 @@ Weather{
 
 |参数|类型|必填|说明| 
 |-|-|-|-|
-|projectNum|String|是|项目号|
+|hardwareInfo|String|是|硬件字符串|
 |uiNum|String|是|UI编号|
 |uiSerial|String|是|UI序号|
 
