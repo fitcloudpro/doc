@@ -816,7 +816,7 @@ APP与服务器交互类似睡眠数据。
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
-|data|String|UpdateEcgRecord的JSON数组。返回上传数据中总数据发生变化的数据|
+|data|String|无|
 
 ```
 /**
@@ -829,15 +829,6 @@ UploadEcgRecord{
     String deviceAddress;//产生此数据的设备地址
     int scaleValue;//幅度转换比
     int sampleBase;//采样率
-}
-/**
-* 更新后的数据
-*/
-UpdateEcgRecord{
-    UUID ecgId;//心电id
-    String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
-    long lastModifyTime;//最后一次更新时间
-    long previousModifyTime;//上一次更新时间
 }
 
 ```
@@ -949,7 +940,7 @@ SportGoal{
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
-|data|String|UpdateSportRecord的JSON数组。返回上传数据中总数据发生变化的数据|
+|data|String|无|
 
 ```
 /**
@@ -975,25 +966,6 @@ SportLatLng{
     int duration;//产生此经纬度的跑步进行时间
     int isRestart; //是否为第一个点，1为是，0为否
 }
-
-/**
-* 更新后的数据
-*/
-UpdateSportRecord{
-    UUID sportId;//运动ID
-    String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
-    int duration;//跑步持续时间
-    double distance;//跑步距离
-    double calorie;//消耗卡路里
-    int step;//总步数
-    double climb;//爬升
-    int locationType;//定位类型0是国内，1是国外，默认0
-    int sportType;//运动类型，1是手环上骑行，2是APP上骑行，3是手环上室外跑，4是APP上室外跑，5是手环上室内跑，6是APP上室内跑
-    long lastModifyTime;//最后一次更新时间
-    
-    long previousModifyTime;//上一次更新时间
-}
-
 ```
 
 ### 5.8.3 获取运动数据
