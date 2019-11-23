@@ -1487,3 +1487,140 @@ Event {
     String hardwareInfo;//硬件字符串
 }    
 ```
+
+## 8.8 新版天气查询
+
+接口名称：/public/getHeCity
+接口作用：根据IP或者经纬度查询城市ID
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|location|String|否|不填: 服务器自动获取IP并返回城市ID<br>经纬度：经度在前纬度在后，英文,分隔，服务器根据经纬度返回城市ID|
+
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|cityInfo的JSON对象|
+
+```
+cityInfo {
+    cid: "CN101010100",         //城市ID，用来查询天气
+    location: "北京",            //城市描述
+    parent_city: "北京",         //上级城市
+    admin_area: "北京",          //行政区域
+    cnty: "中国",                //国家
+    lat: "39.90498734",         //纬度
+    lon: "116.4052887",         //精度
+    tz: "+8.00"                 //时区
+}
+```
+
+接口名称：/public/getHeWeather
+接口作用：根据城市ID获取天气信息
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|cid|String|是|城市ID|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|weatherInfo的JSON对象|
+
+```
+weatherInfo {
+    cond_code: "104",       //天气状态代码, 参见天气代码对应表
+    cond_txt: "阴",         //天气状态描述
+    tmp: "23",              //温度，默认单位：摄氏度
+    fl: "24",                //体感温度，默认单位：摄氏度
+    hum: "56",              //相对湿度
+    pcpn: "0.0",            //降水量
+    pres: "1005",           //大气压强 
+    vis: "8",               //能见度，默认单位：公里
+    wind_deg: "73",         //风向360角度
+    wind_dir: "东北风",      //风向
+    wind_sc: "1",           //风力
+    wind_spd: "4"           //风速，公里/小时
+    cloud: "91",            //云量
+}
+```
+
+天气代码对应表
+
+|代码|中文|英文|图标|
+|--- |--- |--- |--- |
+|100|晴|Sunny/Clear|[100.png](https://cdn.heweather.com/cond_icon/100.png)|
+|101|多云|Cloudy|[101.png](https://cdn.heweather.com/cond_icon/101.png)|
+|102|少云|Few Clouds|[102.png](https://cdn.heweather.com/cond_icon/102.png)|
+|103|晴间多云|Partly Cloudy|[103.png](https://cdn.heweather.com/cond_icon/103.png)|
+|104|阴|Overcast|[104.png](https://cdn.heweather.com/cond_icon/104.png)|
+|200|有风|Windy|[200.png](https://cdn.heweather.com/cond_icon/200.png)|
+|201|平静|Calm|[201.png](https://cdn.heweather.com/cond_icon/201.png)|
+|202|微风|Light Breeze|[202.png](https://cdn.heweather.com/cond_icon/202.png)|
+|203|和风|Moderate/Gentle Breeze|[203.png](https://cdn.heweather.com/cond_icon/203.png)|
+|204|清风|Fresh Breeze|[204.png](https://cdn.heweather.com/cond_icon/204.png)|
+|205|强风/劲风|Strong Breeze|[205.png](https://cdn.heweather.com/cond_icon/205.png)|
+|206|疾风|High Wind, Near Gale|[206.png](https://cdn.heweather.com/cond_icon/206.png)|
+|207|大风|Gale|[207.png](https://cdn.heweather.com/cond_icon/207.png)|
+|208|烈风|Strong Gale|[208.png](https://cdn.heweather.com/cond_icon/208.png)|
+|209|风暴|Storm|[209.png](https://cdn.heweather.com/cond_icon/209.png)|
+|210|狂爆风|Violent Storm|[210.png](https://cdn.heweather.com/cond_icon/210.png)|
+|211|飓风|Hurricane|[211.png](https://cdn.heweather.com/cond_icon/211.png)|
+|212|龙卷风|Tornado|[212.png](https://cdn.heweather.com/cond_icon/212.png)|
+|213|热带风暴|Tropical Storm|[213.png](https://cdn.heweather.com/cond_icon/213.png)|
+|300|阵雨|Shower Rain|[300.png](https://cdn.heweather.com/cond_icon/300.png)|
+|301|强阵雨|Heavy Shower Rain|[301.png](https://cdn.heweather.com/cond_icon/301.png)|
+|302|雷阵雨|Thundershower|[302.png](https://cdn.heweather.com/cond_icon/302.png)|
+|303|强雷阵雨|Heavy Thunderstorm|[303.png](https://cdn.heweather.com/cond_icon/303.png)|
+|304|雷阵雨伴有冰雹|Thundershower with hail|[304.png](https://cdn.heweather.com/cond_icon/304.png)|
+|305|小雨|Light Rain|[305.png](https://cdn.heweather.com/cond_icon/305.png)|
+|306|中雨|Moderate Rain|[306.png](https://cdn.heweather.com/cond_icon/306.png)|
+|307|大雨|Heavy Rain|[307.png](https://cdn.heweather.com/cond_icon/307.png)|
+|308|极端降雨|Extreme Rain|[308.png](https://cdn.heweather.com/cond_icon/308.png)|
+|309|毛毛雨/细雨|Drizzle Rain|[309.png](https://cdn.heweather.com/cond_icon/309.png)|
+|310|暴雨|Storm|[310.png](https://cdn.heweather.com/cond_icon/310.png)|
+|311|大暴雨|Heavy Storm|[311.png](https://cdn.heweather.com/cond_icon/311.png)|
+|312|特大暴雨|Severe Storm|[312.png](https://cdn.heweather.com/cond_icon/312.png)|
+|313|冻雨|Freezing Rain|[313.png](https://cdn.heweather.com/cond_icon/313.png)|
+|314|小到中雨|Light to moderate rain|[314.png](https://cdn.heweather.com/cond_icon/314.png)|
+|315|中到大雨|Moderate to heavy rain|[315.png](https://cdn.heweather.com/cond_icon/315.png)|
+|316|大到暴雨|Heavy rain to storm|[316.png](https://cdn.heweather.com/cond_icon/316.png)|
+|317|暴雨到大暴雨|Storm to heavy storm|[317.png](https://cdn.heweather.com/cond_icon/317.png)|
+|318|大暴雨到特大暴雨|Heavy to severe storm|[318.png](https://cdn.heweather.com/cond_icon/318.png)|
+|399|雨|Rain|[399.png](https://cdn.heweather.com/cond_icon/399.png)|
+|400|小雪|Light Snow|[400.png](https://cdn.heweather.com/cond_icon/400.png)|
+|401|中雪|Moderate Snow|[401.png](https://cdn.heweather.com/cond_icon/401.png)|
+|402|大雪|Heavy Snow|[402.png](https://cdn.heweather.com/cond_icon/402.png)|
+|403|暴雪|Snowstorm|[403.png](https://cdn.heweather.com/cond_icon/403.png)|
+|404|雨夹雪|Sleet|[404.png](https://cdn.heweather.com/cond_icon/404.png)|
+|405|雨雪天气|Rain And Snow|[405.png](https://cdn.heweather.com/cond_icon/405.png)|
+|406|阵雨夹雪|Shower Snow|[406.png](https://cdn.heweather.com/cond_icon/406.png)|
+|407|阵雪|Snow Flurry|[407.png](https://cdn.heweather.com/cond_icon/407.png)|
+|408|小到中雪|Light to moderate snow|[408.png](https://cdn.heweather.com/cond_icon/408.png)|
+|409|中到大雪|Moderate to heavy snow|[409.png](https://cdn.heweather.com/cond_icon/409.png)|
+|410|大到暴雪|Heavy snow to snowstorm|[410.png](https://cdn.heweather.com/cond_icon/410.png)|
+|499|雪|Snow|[499.png](https://cdn.heweather.com/cond_icon/499.png)|
+|500|薄雾|Mist|[500.png](https://cdn.heweather.com/cond_icon/500.png)|
+|501|雾|Foggy|[501.png](https://cdn.heweather.com/cond_icon/501.png)|
+|502|霾|Haze|[502.png](https://cdn.heweather.com/cond_icon/502.png)|
+|503|扬沙|Sand|[503.png](https://cdn.heweather.com/cond_icon/503.png)|
+|504|浮尘|Dust|[504.png](https://cdn.heweather.com/cond_icon/504.png)|
+|507|沙尘暴|Duststorm|[507.png](https://cdn.heweather.com/cond_icon/507.png)|
+|508|强沙尘暴|Sandstorm|[508.png](https://cdn.heweather.com/cond_icon/508.png)|
+|509|浓雾|Dense fog|[509.png](https://cdn.heweather.com/cond_icon/509.png)|
+|510|强浓雾|Strong fog|[510.png](https://cdn.heweather.com/cond_icon/510.png)|
+|511|中度霾|Moderate haze|[511.png](https://cdn.heweather.com/cond_icon/511.png)|
+|512|重度霾|Heavy haze|[512.png](https://cdn.heweather.com/cond_icon/512.png)|
+|513|严重霾|Severe haze|[513.png](https://cdn.heweather.com/cond_icon/513.png)|
+|514|大雾|Heavy fog|[514.png](https://cdn.heweather.com/cond_icon/514.png)|
+|515|特强浓雾|Extra heavy fog|[515.png](https://cdn.heweather.com/cond_icon/515.png)|
+|900|热|Hot|[900.png](https://cdn.heweather.com/cond_icon/900.png)|
+|901|冷|Cold|[901.png](https://cdn.heweather.com/cond_icon/901.png)|
+|999|未知|Unknown|[999.png](https://cdn.heweather.com/cond_icon/999.png)|
