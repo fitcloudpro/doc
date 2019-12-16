@@ -81,8 +81,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 
 
 ## 3.3 刷新token
-接口名称：/auth/refreshToken
-接口作用：刷新token
+接口名称：/auth/refreshToken  
+接口作用：刷新token  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -98,8 +98,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 
 # 四、用户接口
 ## 4.1 注册
-接口名称：/auth/register
-接口作用：用户注册。根据checkAuthCode参数，有需要验证码和不需要验证码两种注册方式。
+接口名称：/auth/register  
+接口作用：用户注册。根据checkAuthCode参数，有需要验证码和不需要验证码两种注册方式。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -118,8 +118,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |data|String|Token的JSON对象|
 
 ## 4.2 获取验证码
-接口名称：/auth/requestAuthCode
-接口作用：获取验证码，可以用于注册，找回密码，绑定手机等。
+接口名称：/auth/requestAuthCode  
+接口作用：获取验证码，可以用于注册，找回密码，绑定手机等。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -133,8 +133,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 4.3 检测用户是否存在
-接口名称：/auth/checkExist
-接口作用：检测用户是否已经存在
+接口名称：/auth/checkExist  
+接口作用：检测用户是否已经存在  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -149,8 +149,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |data|int|0表示不存在，1表示已存在。|
 		
 ## 4.4 账号登录
-接口名称：/auth/login
-接口作用：使用手机号或者邮箱登录
+接口名称：/auth/login  
+接口作用：使用手机号或者邮箱登录  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -167,8 +167,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |data|String|Token的JSON对象|
 
 ## 4.5 第三方平台登录
-接口名称：/auth/login2
-接口作用：使用QQ，微信等第三方平台登录。如果是第一次使用该平台账号登录，自动完成注册功能。
+接口名称：/auth/login2  
+接口作用：使用QQ，微信等第三方平台登录。如果是第一次使用该平台账号登录，自动完成注册功能。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -185,8 +185,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |data|String|Token的JSON对象|
 
 ## 4.6 重新设置密码
-接口名称：/auth/resetPassword
-接口作用：用于忘记密码时，重新设置密码。虽然邮箱注册时不需要验证码，但是邮箱找回密码时，需要验证码。
+接口名称：/auth/resetPassword  
+接口作用：用于忘记密码时，重新设置密码。虽然邮箱注册时不需要验证码，但是邮箱找回密码时，需要验证码。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -202,8 +202,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 4.7 修改密码
-接口名称：/user/changePassword
-接口作用：用于修改密码。
+接口名称：/user/changePassword  
+接口作用：用于修改密码。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -217,8 +217,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 4.8 户账号设置完成情况
-接口名称：/user/profileStatus
-接口作用：判断用户账号资料设置情况
+接口名称：/user/profileStatus  
+接口作用：判断用户账号资料设置情况  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -245,8 +245,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |data|int|0，没有设置，1，已经设置。|
 
 ## 4.9 绑定/换绑手机号/邮箱
-接口名称：/user/rebind
-接口作用：绑定手机号和邮箱，目前APP原型图上邮箱绑定时发送一个链接到用户邮箱，用户点击完成邮箱的绑定。这里还是全部改成验证码吧，统一一下方便点。
+接口名称：/user/rebind  
+接口作用：绑定手机号和邮箱，目前APP原型图上邮箱绑定时发送一个链接到用户邮箱，用户点击完成邮箱的绑定。这里还是全部改成验证码吧，统一一下方便点。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -261,8 +261,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 4.10 设置用户身份标志
-接口名称：/user/setIdentity
-接口作用：设置用户的身份ID，只允许设置一次。
+接口名称：/user/setIdentity  
+接口作用：设置用户的身份ID，只允许设置一次。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -275,8 +275,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 4.11 同步用户资料
-接口名称：/user/syncUserInfo
-接口作用：同步本地用户信息到服务器，服务器对比资料更新时间，在确定是否需要覆盖旧的数据。请求成功后，服务器其需要返回所有用户信息。
+接口名称：/user/syncUserInfo  
+接口作用：同步本地用户信息到服务器，服务器对比资料更新时间，在确定是否需要覆盖旧的数据。请求成功后，服务器其需要返回所有用户信息。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -314,8 +314,8 @@ User{
 ```
 
 ## 4.12 同步用户单位配置
-接口名称：/user/syncUnitConfig
-接口作用：同步用户的单位配置。
+接口名称：/user/syncUnitConfig  
+接口作用：同步用户的单位配置。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -339,8 +339,8 @@ UnitConfig{
 ```
 
 ## 4.13 同步用户运动目标配置
-接口名称：/user/syncTargetConfig
-接口作用：同步用户每日步数目标的配置。
+接口名称：/user/syncTargetConfig  
+接口作用：同步用户每日步数目标的配置。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -366,8 +366,8 @@ StepTargetConfig{
 ```
 
 ## 4.14 同步用户绑定设备的配置
-接口名称：/user/syncBindDeviceConfig
-接口作用：同步用户绑定设备的配置。
+接口名称：/user/syncBindDeviceConfig  
+接口作用：同步用户绑定设备的配置。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -397,8 +397,8 @@ BindDeviceConfig{
 # 五、数据接口
 ## 5.1 步数接口
 ### 5.1.1 上传步数数据
-接口名称：/step/upload
-接口作用：按日期划分，上传一组步数数据。
+接口名称：/step/upload  
+接口作用：按日期划分，上传一组步数数据。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -428,8 +428,8 @@ StepRecord{
 ```
 
 ### 5.1.2 获取某段日期的步数数据
-接口名称：/step/get
-接口作用：获取某段日期用户的步数总数据。如果startDate等于endDate，就相当于查询这一天的数据。
+接口名称：/step/get  
+接口作用：获取某段日期用户的步数总数据。如果startDate等于endDate，就相当于查询这一天的数据。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -449,8 +449,8 @@ APP使用时，如果token没有过期，并且之前有从服务器获取过睡
 如果token过期了，或者之前没有从服务器获取过睡眠数据，在上传完本地睡眠数据后，在从服务器拉取最新的睡眠数据，更新到本地，保证本地睡眠数据和服务器保持一致。
 
 ### 5.2.1 上传睡眠数据
-接口名称：/sleep/upload
-接口作用：上传一组睡眠数据。
+接口名称：/sleep/upload  
+接口作用：上传一组睡眠数据。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -500,8 +500,8 @@ UpdateSleepRecord{
 ```
 
 ### 5.2.2 获取某段日期的睡眠数据
-接口名称：/sleep/get
-接口作用：获取某段日期用户的睡眠总数据。
+接口名称：/sleep/get  
+接口作用：获取某段日期用户的睡眠总数据。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -532,8 +532,8 @@ SleepRecord{
 
 ## 5.3 心率接口
 ### 5.3.1 上传心率数据
-接口名称：/heartrate/upload
-接口作用：上传一组心率数据
+接口名称：/heartrate/upload  
+接口作用：上传一组心率数据  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -576,8 +576,8 @@ UpdatedHeartRateRecord{
 ```
 
 ### 5.3.2 获取某段日期的心率数据
-接口名称：/heartrate/get
-接口作用：获取某段日期用户的心率数据。如果startDate等于endDate，就相当于查询这一天的数据。
+接口名称：/heartrate/get  
+接口作用：获取某段日期用户的心率数据。如果startDate等于endDate，就相当于查询这一天的数据。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -606,8 +606,8 @@ HeartRateRecord{
 
 ## 5.4 血压接口
 ### 5.4.1 上传血压数据
-接口名称：/bloodpressure/upload
-接口作用：上传一组心率数据
+接口名称：/bloodpressure/upload  
+接口作用：上传一组心率数据  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -652,8 +652,8 @@ UpdatedBloodPressureRecord{
 ```
 
 ### 5.4.2 获取某段日期的血压数据
-接口名称：/bloodpressure/get
-接口作用：获取某段日期用户的心率数据。如果startDate等于endDate，就相当于查询这一天的数据。
+接口名称：/bloodpressure/get  
+接口作用：获取某段日期用户的心率数据。如果startDate等于endDate，就相当于查询这一天的数据。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -684,8 +684,8 @@ BloodPressureRecord{
 ## 5.5 血氧接口
 
 ### 5.5.1 上传血氧数据
-接口名称：/oxygen/upload
-接口作用：上传一组血氧数据
+接口名称：/oxygen/upload  
+接口作用：上传一组血氧数据  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -728,8 +728,8 @@ UpdatedOxygenRecord{
 ```
 
 ### 5.5.2 获取某段日期的血氧数据
-接口名称：/oxygen/get
-接口作用：获取某段日期用户的血氧数据。如果startDate等于endDate，就相当于查询这一天的数据。
+接口名称：/oxygen/get  
+接口作用：获取某段日期用户的血氧数据。如果startDate等于endDate，就相当于查询这一天的数据。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -761,8 +761,8 @@ OxygenRecord{
 APP与服务器交互类似睡眠数据。
 
 ### 5.6.1 上传呼吸频率数据
-接口名称：/respiratoryrate/upload
-接口作用：上传一组呼吸频率数据
+接口名称：/respiratoryrate/upload  
+接口作用：上传一组呼吸频率数据  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -785,8 +785,8 @@ RespiratoryRateItem{
 ```
 
 ### 5.6.2 获取某段日期的呼吸频率数据
-接口名称：/respiratoryrate/get
-接口作用：获取某段日期用户的呼吸频率数据。如果startDate等于endDate，就相当于查询这一天的数据。
+接口名称：/respiratoryrate/get  
+接口作用：获取某段日期用户的呼吸频率数据。如果startDate等于endDate，就相当于查询这一天的数据。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -804,8 +804,8 @@ RespiratoryRateItem{
 APP与服务器交互类似睡眠数据。
 
 ### 5.7.1 上传心电数据
-接口名称：/ecg/upload 
-接口作用：上传一组用户的心电数据 
+接口名称：/ecg/upload   
+接口作用：上传一组用户的心电数据   
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -816,7 +816,7 @@ APP与服务器交互类似睡眠数据。
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
-|data|String|UpdateEcgRecord的JSON数组。返回上传数据中总数据发生变化的数据|
+|data|String|无|
 
 ```
 /**
@@ -830,21 +830,12 @@ UploadEcgRecord{
     int scaleValue;//幅度转换比
     int sampleBase;//采样率
 }
-/**
-* 更新后的数据
-*/
-UpdateEcgRecord{
-    UUID ecgId;//心电id
-    String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
-    long lastModifyTime;//最后一次更新时间
-    long previousModifyTime;//上一次更新时间
-}
 
 ```
 
 ### 5.7.2 获取某段日期的心电数据
-接口名称：/ecg/get
-接口作用：获取某段日期用户的心电数据。如果startDate等于endDate，就相当于查询这一天的数据。因为心电详细数据非常大，所以这个接口不返回EcgRecord detail字段
+接口名称：/ecg/get  
+接口作用：获取某段日期用户的心电数据。如果startDate等于endDate，就相当于查询这一天的数据。因为心电详细数据非常大，所以这个接口不返回EcgRecord detail字段  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -878,8 +869,8 @@ EcgRecord{
 }
 ```
 ### 5.7.3 获取某个心电的详细数据
-接口名称：/ecg/getDetail
-接口作用：获取某个心点值的详细数据，需包含detail字段。
+接口名称：/ecg/getDetail  
+接口作用：获取某个心点值的详细数据，需包含detail字段。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -893,8 +884,8 @@ EcgRecord{
 |data|String|EcgRecord的JSON对象|
 
 ### 5.7.4  获取心电报告
-接口名称：/ecg/getReport
-接口作用：获取某个心电的心电报告
+接口名称：/ecg/getReport  
+接口作用：获取某个心电的心电报告  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -912,8 +903,8 @@ EcgRecord{
 APP与服务器交互类似睡眠数据。
 
 ### 5.8.1 同步运动目标
-接口名称：/sport/syncGoal
-接口作用：设置运动目标
+接口名称：/sport/syncGoal  
+接口作用：设置运动目标  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -937,8 +928,8 @@ SportGoal{
 ```
 
 ### 5.8.2 上传运动数据
-接口名称：/sport/upload
-接口作用：上传一组用户的运动数据
+接口名称：/sport/upload  
+接口作用：上传一组用户的运动数据  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -949,7 +940,7 @@ SportGoal{
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
-|data|String|UpdateSportRecord的JSON数组。返回上传数据中总数据发生变化的数据|
+|data|String|无|
 
 ```
 /**
@@ -975,30 +966,11 @@ SportLatLng{
     int duration;//产生此经纬度的跑步进行时间
     int isRestart; //是否为第一个点，1为是，0为否
 }
-
-/**
-* 更新后的数据
-*/
-UpdateSportRecord{
-    UUID sportId;//运动ID
-    String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
-    int duration;//跑步持续时间
-    double distance;//跑步距离
-    double calorie;//消耗卡路里
-    int step;//总步数
-    double climb;//爬升
-    int locationType;//定位类型0是国内，1是国外，默认0
-    int sportType;//运动类型，1是手环上骑行，2是APP上骑行，3是手环上室外跑，4是APP上室外跑，5是手环上室内跑，6是APP上室内跑
-    long lastModifyTime;//最后一次更新时间
-    
-    long previousModifyTime;//上一次更新时间
-}
-
 ```
 
 ### 5.8.3 获取运动数据
-接口名称：/sport/get
-接口作用：获取运动数据，支持分页查询
+接口名称：/sport/get  
+接口作用：获取运动数据，支持分页查询  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1032,8 +1004,8 @@ SportRecord{
 ```
 
 ### 5.8.4 获取运动详细
-接口名称：/sport/getDetail
-接口作用：获取运动详细数据
+接口名称：/sport/getDetail  
+接口作用：获取运动详细数据  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1047,8 +1019,8 @@ SportRecord{
 |data|String|SportRecord的JSON对象|
 
 ### 5.8.5 获取运动统计数据
-接口名称：/sport/getTotal
-接口作用：获取一年内运动的统计数据
+接口名称：/sport/getTotal  
+接口作用：获取一年内运动的统计数据  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1073,8 +1045,8 @@ SportTotal:{
 
 # 六、好友接口
 ## 6.1 搜索用户
-接口名称：/relation/search
-接口作用：根据输入的关键字，搜索好友。目前搜索只需要通过完全匹配identityId的方式搜索即可。
+接口名称：/relation/search  
+接口作用：根据输入的关键字，搜索好友。目前搜索只需要通过完全匹配identityId的方式搜索即可。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1101,8 +1073,8 @@ User{
 ```
 
 ## 6.2 检测用户是否已经为好友关系
-接口名称：/relation/check
-接口作用：检测某个用户是否已经是好友。用于客户端界面展示逻辑，如果不是好友关系，显示添加好友界面，如果已经是好友关系，那么显示好友信息页面。
+接口名称：/relation/check  
+接口作用：检测某个用户是否已经是好友。用于客户端界面展示逻辑，如果不是好友关系，显示添加好友界面，如果已经是好友关系，那么显示好友信息页面。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1116,8 +1088,8 @@ User{
 |data|int|0表示不是好友关系，1表示已经是好友关系。|
 
 ## 6.3 发送好友申请
-接口名称：/relation/send
-接口作用：申请好友。
+接口名称：/relation/send  
+接口作用：申请好友。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1132,8 +1104,8 @@ User{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 6.4 接受好友申请
-接口名称：/relation/accept
-接口作用：接受好友申请。处理完后删除该条申请消息
+接口名称：/relation/accept  
+接口作用：接受好友申请。处理完后删除该条申请消息  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1146,8 +1118,8 @@ User{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 6.5 拒绝好友申请
-接口名称：/relation/reject
-接口作用：拒绝好友申请。处理完后删除该条申请消息
+接口名称：/relation/reject  
+接口作用：拒绝好友申请。处理完后删除该条申请消息  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1160,8 +1132,8 @@ User{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 6.6 删除好友
-接口名称：/relation/remove
-接口作用：删除好友。
+接口名称：/relation/remove  
+接口作用：删除好友。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1174,8 +1146,8 @@ User{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 6.7 修改备注名
-接口名称：/relation/rename
-接口作用：修改好友备注名。
+接口名称：/relation/rename  
+接口作用：修改好友备注名。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1190,8 +1162,8 @@ User{
 
 
 ## 6.8 好友列表
-接口名称：/relation/list
-接口作用：查看好友列表。
+接口名称：/relation/list  
+接口作用：查看好友列表。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1205,8 +1177,8 @@ User{
 |data|String|Friend的JSON数组|
 
 ## 6.9 好友信息
-接口名称：/relation/info
-接口作用：查看好友列表。
+接口名称：/relation/info  
+接口作用：查看好友列表。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1234,8 +1206,8 @@ Friend{
 ```
 
 ## 6.10 获取申请消息列表
-接口名称：/relation/msg
-接口作用：获取申请消息列表。
+接口名称：/relation/msg  
+接口作用：获取申请消息列表。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1260,8 +1232,8 @@ ApplyMsg{
 ```
 
 ## 6.11 将某个时间点之前的消息设置为已读
-接口名称：/relation/readMsg
-接口作用：将某个时间点之前的消息设置为已读。因为app要显示有多少条未读消息，所以需要这个接口
+接口名称：/relation/readMsg  
+接口作用：将某个时间点之前的消息设置为已读。因为app要显示有多少条未读消息，所以需要这个接口  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1274,8 +1246,8 @@ ApplyMsg{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 6.12 获取好友总数据
-接口名称：/relation/totalData
-接口作用：获取好友的总数据。 
+接口名称：/relation/totalData  
+接口作用：获取好友的总数据。   
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1323,8 +1295,8 @@ FriendTotalData{
 
 # 七、项目接口
 ## 7.1 版本检测
-接口名称：/public/checkVersion
-接口作用：检测是否用版本更新
+接口名称：/public/checkVersion  
+接口作用：检测是否用版本更新  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1353,8 +1325,8 @@ Version{
 # 八、其他接口
 
 ## 8.1 意见反馈
-接口名称：/public/feedback
-接口作用：提交意见反馈
+接口名称：/public/feedback  
+接口作用：提交意见反馈  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1374,8 +1346,8 @@ Version{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 
 ## 8.2 上传文件
-接口名称：/public/uploadFile
-接口作用：用户上传文件，这里只列出需要的参数数据。这个功能是否用ftp或者其他的方式做更好，开发者自行评估。
+接口名称：/public/uploadFile  
+接口作用：用户上传文件，这里只列出需要的参数数据。这个功能是否用ftp或者其他的方式做更好，开发者自行评估。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1390,8 +1362,8 @@ Version{
 |data|String|文件url|
 
 ## 8.3 天气查询
-接口名称：/public/getWeather
-接口作用：查询对应地区的天气。
+接口名称：/public/getWeather  
+接口作用：查询对应地区的天气。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1416,8 +1388,8 @@ Weather{
 ```
 
 ## 8.4 国外天气查询
-接口名称：/public/overSeaWeather
-接口作用：查询对应地区的天气。
+接口名称：/public/overSeaWeather  
+接口作用：查询对应地区的天气。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1440,8 +1412,8 @@ Weather{
 ```
 
 ## 8.5 微信运动
-接口名称：/wxsport/getQrCode
-接口作用：绑定微信运动接口。
+接口名称：/wxsport/getQrCode  
+接口作用：绑定微信运动接口。  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
@@ -1463,8 +1435,8 @@ Weather{
 
 ## 8.6 表盘UI样式
 
-接口名称：/public/style/list
-接口作用：查询当前版本支持的表盘样式
+接口名称：/public/style/list  
+接口作用：查询当前版本支持的表盘样式  
 接口参数：
 
 |参数|类型|必填|说明| 
@@ -1491,8 +1463,8 @@ UIVersion {
 
 ## 8.7 事件批量上报
 
-接口名称：/public/event/upload
-接口作用：批量上报事件
+接口名称：/public/event/upload  
+接口作用：批量上报事件  
 接口参数：
 
 |参数|类型|必填|说明| 
@@ -1515,3 +1487,140 @@ Event {
     String hardwareInfo;//硬件字符串
 }    
 ```
+
+## 8.8 新版天气查询
+
+接口名称：/public/getHeCity    
+接口作用：根据IP或者经纬度查询城市ID    
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|location|String|否|不填: 服务器自动获取IP并返回城市ID<br>经纬度：经度在前纬度在后，英文,分隔，服务器根据经纬度返回城市ID|
+
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|cityInfo的JSON对象|
+
+```
+cityInfo {
+    cid: "CN101010100",         //城市ID，用来查询天气
+    location: "北京",            //城市描述
+    parent_city: "北京",         //上级城市
+    admin_area: "北京",          //行政区域
+    cnty: "中国",                //国家
+    lat: "39.90498734",         //纬度
+    lon: "116.4052887",         //精度
+    tz: "+8.00"                 //时区
+}
+```
+
+接口名称：/public/getHeWeather  
+接口作用：根据城市ID获取天气信息  
+接口参数：  
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|cid|String|是|城市ID|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|weatherInfo的JSON对象|
+
+```
+weatherInfo {
+    cond_code: "104",       //天气状态代码, 参见天气代码对应表
+    cond_txt: "阴",         //天气状态描述
+    tmp: "23",              //温度，默认单位：摄氏度
+    fl: "24",                //体感温度，默认单位：摄氏度
+    hum: "56",              //相对湿度
+    pcpn: "0.0",            //降水量
+    pres: "1005",           //大气压强 
+    vis: "8",               //能见度，默认单位：公里
+    wind_deg: "73",         //风向360角度
+    wind_dir: "东北风",      //风向
+    wind_sc: "1",           //风力
+    wind_spd: "4"           //风速，公里/小时
+    cloud: "91",            //云量
+}
+```
+
+天气代码对应表
+
+|代码|中文|英文|图标|
+|--- |--- |--- |--- |
+|100|晴|Sunny/Clear|[100.png](https://cdn.heweather.com/cond_icon/100.png)|
+|101|多云|Cloudy|[101.png](https://cdn.heweather.com/cond_icon/101.png)|
+|102|少云|Few Clouds|[102.png](https://cdn.heweather.com/cond_icon/102.png)|
+|103|晴间多云|Partly Cloudy|[103.png](https://cdn.heweather.com/cond_icon/103.png)|
+|104|阴|Overcast|[104.png](https://cdn.heweather.com/cond_icon/104.png)|
+|200|有风|Windy|[200.png](https://cdn.heweather.com/cond_icon/200.png)|
+|201|平静|Calm|[201.png](https://cdn.heweather.com/cond_icon/201.png)|
+|202|微风|Light Breeze|[202.png](https://cdn.heweather.com/cond_icon/202.png)|
+|203|和风|Moderate/Gentle Breeze|[203.png](https://cdn.heweather.com/cond_icon/203.png)|
+|204|清风|Fresh Breeze|[204.png](https://cdn.heweather.com/cond_icon/204.png)|
+|205|强风/劲风|Strong Breeze|[205.png](https://cdn.heweather.com/cond_icon/205.png)|
+|206|疾风|High Wind, Near Gale|[206.png](https://cdn.heweather.com/cond_icon/206.png)|
+|207|大风|Gale|[207.png](https://cdn.heweather.com/cond_icon/207.png)|
+|208|烈风|Strong Gale|[208.png](https://cdn.heweather.com/cond_icon/208.png)|
+|209|风暴|Storm|[209.png](https://cdn.heweather.com/cond_icon/209.png)|
+|210|狂爆风|Violent Storm|[210.png](https://cdn.heweather.com/cond_icon/210.png)|
+|211|飓风|Hurricane|[211.png](https://cdn.heweather.com/cond_icon/211.png)|
+|212|龙卷风|Tornado|[212.png](https://cdn.heweather.com/cond_icon/212.png)|
+|213|热带风暴|Tropical Storm|[213.png](https://cdn.heweather.com/cond_icon/213.png)|
+|300|阵雨|Shower Rain|[300.png](https://cdn.heweather.com/cond_icon/300.png)|
+|301|强阵雨|Heavy Shower Rain|[301.png](https://cdn.heweather.com/cond_icon/301.png)|
+|302|雷阵雨|Thundershower|[302.png](https://cdn.heweather.com/cond_icon/302.png)|
+|303|强雷阵雨|Heavy Thunderstorm|[303.png](https://cdn.heweather.com/cond_icon/303.png)|
+|304|雷阵雨伴有冰雹|Thundershower with hail|[304.png](https://cdn.heweather.com/cond_icon/304.png)|
+|305|小雨|Light Rain|[305.png](https://cdn.heweather.com/cond_icon/305.png)|
+|306|中雨|Moderate Rain|[306.png](https://cdn.heweather.com/cond_icon/306.png)|
+|307|大雨|Heavy Rain|[307.png](https://cdn.heweather.com/cond_icon/307.png)|
+|308|极端降雨|Extreme Rain|[308.png](https://cdn.heweather.com/cond_icon/308.png)|
+|309|毛毛雨/细雨|Drizzle Rain|[309.png](https://cdn.heweather.com/cond_icon/309.png)|
+|310|暴雨|Storm|[310.png](https://cdn.heweather.com/cond_icon/310.png)|
+|311|大暴雨|Heavy Storm|[311.png](https://cdn.heweather.com/cond_icon/311.png)|
+|312|特大暴雨|Severe Storm|[312.png](https://cdn.heweather.com/cond_icon/312.png)|
+|313|冻雨|Freezing Rain|[313.png](https://cdn.heweather.com/cond_icon/313.png)|
+|314|小到中雨|Light to moderate rain|[314.png](https://cdn.heweather.com/cond_icon/314.png)|
+|315|中到大雨|Moderate to heavy rain|[315.png](https://cdn.heweather.com/cond_icon/315.png)|
+|316|大到暴雨|Heavy rain to storm|[316.png](https://cdn.heweather.com/cond_icon/316.png)|
+|317|暴雨到大暴雨|Storm to heavy storm|[317.png](https://cdn.heweather.com/cond_icon/317.png)|
+|318|大暴雨到特大暴雨|Heavy to severe storm|[318.png](https://cdn.heweather.com/cond_icon/318.png)|
+|399|雨|Rain|[399.png](https://cdn.heweather.com/cond_icon/399.png)|
+|400|小雪|Light Snow|[400.png](https://cdn.heweather.com/cond_icon/400.png)|
+|401|中雪|Moderate Snow|[401.png](https://cdn.heweather.com/cond_icon/401.png)|
+|402|大雪|Heavy Snow|[402.png](https://cdn.heweather.com/cond_icon/402.png)|
+|403|暴雪|Snowstorm|[403.png](https://cdn.heweather.com/cond_icon/403.png)|
+|404|雨夹雪|Sleet|[404.png](https://cdn.heweather.com/cond_icon/404.png)|
+|405|雨雪天气|Rain And Snow|[405.png](https://cdn.heweather.com/cond_icon/405.png)|
+|406|阵雨夹雪|Shower Snow|[406.png](https://cdn.heweather.com/cond_icon/406.png)|
+|407|阵雪|Snow Flurry|[407.png](https://cdn.heweather.com/cond_icon/407.png)|
+|408|小到中雪|Light to moderate snow|[408.png](https://cdn.heweather.com/cond_icon/408.png)|
+|409|中到大雪|Moderate to heavy snow|[409.png](https://cdn.heweather.com/cond_icon/409.png)|
+|410|大到暴雪|Heavy snow to snowstorm|[410.png](https://cdn.heweather.com/cond_icon/410.png)|
+|499|雪|Snow|[499.png](https://cdn.heweather.com/cond_icon/499.png)|
+|500|薄雾|Mist|[500.png](https://cdn.heweather.com/cond_icon/500.png)|
+|501|雾|Foggy|[501.png](https://cdn.heweather.com/cond_icon/501.png)|
+|502|霾|Haze|[502.png](https://cdn.heweather.com/cond_icon/502.png)|
+|503|扬沙|Sand|[503.png](https://cdn.heweather.com/cond_icon/503.png)|
+|504|浮尘|Dust|[504.png](https://cdn.heweather.com/cond_icon/504.png)|
+|507|沙尘暴|Duststorm|[507.png](https://cdn.heweather.com/cond_icon/507.png)|
+|508|强沙尘暴|Sandstorm|[508.png](https://cdn.heweather.com/cond_icon/508.png)|
+|509|浓雾|Dense fog|[509.png](https://cdn.heweather.com/cond_icon/509.png)|
+|510|强浓雾|Strong fog|[510.png](https://cdn.heweather.com/cond_icon/510.png)|
+|511|中度霾|Moderate haze|[511.png](https://cdn.heweather.com/cond_icon/511.png)|
+|512|重度霾|Heavy haze|[512.png](https://cdn.heweather.com/cond_icon/512.png)|
+|513|严重霾|Severe haze|[513.png](https://cdn.heweather.com/cond_icon/513.png)|
+|514|大雾|Heavy fog|[514.png](https://cdn.heweather.com/cond_icon/514.png)|
+|515|特强浓雾|Extra heavy fog|[515.png](https://cdn.heweather.com/cond_icon/515.png)|
+|900|热|Hot|[900.png](https://cdn.heweather.com/cond_icon/900.png)|
+|901|冷|Cold|[901.png](https://cdn.heweather.com/cond_icon/901.png)|
+|999|未知|Unknown|[999.png](https://cdn.heweather.com/cond_icon/999.png)|
