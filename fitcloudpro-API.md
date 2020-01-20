@@ -1624,3 +1624,55 @@ weatherInfo {
 |900|热|Hot|[900.png](https://cdn.heweather.com/cond_icon/900.png)|
 |901|冷|Cold|[901.png](https://cdn.heweather.com/cond_icon/901.png)|
 |999|未知|Unknown|[999.png](https://cdn.heweather.com/cond_icon/999.png)|
+
+
+## 8.9 新表盘列表
+
+接口名称：/public/dial/list  
+接口作用：查询符合的表盘列表  
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|hardwareInfo|String|是|硬件字符串|
+|dialNum|int|是|表盘编号|
+|lcd|String|是|表盘LCD分辨率尺寸|
+|toolVersion|int|是|表盘工具版本|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|Dial的JSON列表|
+
+```
+Dial {
+    int dialNum;
+    String lcd;
+    int toolVersion;
+    String binUrl;
+    int binVersion;
+    String imgUrl;
+    String deviceImgUrl;
+    String name;
+    int downloadCount;
+}    
+```
+
+## 8.10 设备外壳
+
+接口名称：/public/device/shell  
+接口作用：查询设备外壳的图片  
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|hardwareInfo|String|是|硬件字符串|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|手环外壳url|
