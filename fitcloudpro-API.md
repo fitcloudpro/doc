@@ -1635,16 +1635,15 @@ weatherInfo {
 |参数|类型|必填|说明| 
 |-|-|-|-|
 |hardwareInfo|String|是|硬件字符串|
-|dialNum|int|是|表盘编号|
-|lcd|String|是|表盘LCD分辨率尺寸|
-|toolVersion|int|是|表盘工具版本|
+|lcd|int|是|表盘LCD分辨率尺寸的ID值|
+|toolVersion|String|是|表盘工具版本|
 
 返回值：
 |返回字段|类型|说明|
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
-|data|String|Dial的JSON列表|
+|data|List|Dial的JSON列表|
 
 ```
 Dial {
