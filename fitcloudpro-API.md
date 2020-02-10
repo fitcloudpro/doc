@@ -1648,8 +1648,8 @@ weatherInfo {
 ```
 Dial {
     int dialNum;
-    String lcd;
-    int toolVersion;
+    int lcd;
+    String toolVersion;
     String binUrl;
     int binVersion;
     String imgUrl;
