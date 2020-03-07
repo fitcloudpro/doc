@@ -27,9 +27,9 @@
 |参数|类型|必填|说明| 
 |-|-|-|-|
 |accessToken|String|是|fitcloud提供|
-|timeFrom|String|是|时间范围开始, 格式 yyyy-MM-dd HH:mm:ss|
-|timeTo|String|是|时间范围结束, 格式 yyyy-MM-dd HH:mm:ss|
-|page|Integer|否|页码，从1开始, 默认1|
+|date|String|否|日期, 格式 yyyy-MM-dd,  默认：当天|
+|page|Integer|否|页码，从1开始, 默认: 1|
+|pageSize|Integer|否|每页记录数，默认: 100, 最大1000|
 
 
 返回值：  
