@@ -3,7 +3,7 @@
 [TOC]
 
 # 一、说明
-本文档接口数据格式沿用旧服务器格式，采用HTTP **POST** 请求方式，返回数据格式统一为JSON。
+文档接口数据采用`http`请求方式，返回数据格式统一为`json`。
 
 返回数据例子如下：
 ```json
@@ -27,8 +27,8 @@
 |参数|类型|必填|说明| 
 |-|-|-|-|
 |accessToken|String|是|fitcloud提供|
-|timeFrom|String|是|时间范围开始, 格式yyyy-MM-dd HH:mm:ss|
-|timeTo|String|是|时间范围结束, 格式yyyy-MM-dd HH:mm:ss|
+|timeFrom|String|是|时间范围开始, 格式 yyyy-MM-dd HH:mm:ss|
+|timeTo|String|是|时间范围结束, 格式 yyyy-MM-dd HH:mm:ss|
 |page|Integer|否|页码，从1开始, 默认1|
 
 
