@@ -71,6 +71,7 @@ data: {
 Payload数据结构:  
 
 1. type = `step`
+
 ```
 /**
 * 某天步数总数据
@@ -85,6 +86,7 @@ Payload数据结构:
 ```
 
 2. type = `sleep`
+
 ```
 /**
 * 上传的睡眠数据
@@ -109,6 +111,7 @@ SleepItem{
 ```
 
 3. type = `heartrate`
+
 ```
 /**
 * 上传的心率数据
@@ -129,6 +132,7 @@ HeartRateItem{
 ```
 
 4. type = `bloodpressure`
+
 ```
 /**
 * 上传的血压数据
@@ -149,6 +153,7 @@ BloodPressureItem{
 ```
 
 5. type = `oxygen`
+
 ```
 /**
 * 上传的血氧数据
@@ -169,6 +174,7 @@ OxygenItem{
 ```
 
 6. type = `ecg`
+
 ```
 /**
  * 心电数据
