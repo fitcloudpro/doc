@@ -29,7 +29,7 @@
 |accessToken|String|是|fitcloud提供|
 |timeFrom|String|是|时间范围开始, 格式yyyy-MM-dd HH:mm:ss|
 |timeTo|String|是|时间范围结束, 格式yyyy-MM-dd HH:mm:ss|
-|page|String|否|页码，从1开始, 默认1|
+|page|Integer|否|页码，从1开始, 默认1|
 
 
 返回值：  
