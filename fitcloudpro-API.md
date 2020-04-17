@@ -1043,6 +1043,83 @@ SportTotal:{
 }
 ```
 
+## 5.9 温度接口
+### 5.9.1 上传温度数据
+接口名称：/temperature/upload  
+接口作用：上传一组温度数据  
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|data|String|是|UploadTemperatureRecord的JSON数组|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|UpdatedTemperatureRecord的JSON数组|
+
+```
+/**
+* 上传的温度数据
+*/
+UploadTemperatureRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    List<TemperatureItem> detail;//包含的详细数据
+}
+
+/**
+* 温度数据
+*/
+TemperatureItem{
+    String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
+    float body;//体温，单位为摄氏度，保留2位小数
+    float wrist;//腕温，单位为摄氏度，保留2位小数
+}
+
+/**
+* 此次更新天数据的信息
+*/
+UpdatedTemperatureRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    int	avgBody;//当天平均体温
+    int	avgWrist;//当天平均腕温
+    long lastModifyTime;//最后一次更新时间
+
+    long previousModifyTime;//上一次更新时间
+}
+```
+
+### 5.9.2 获取某段日期的温度数据
+接口名称：/temperature/get  
+接口作用：获取某段日期用户的温度数据。如果startDate等于endDate，就相当于查询这一天的数据。  
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|startDate|String|是|起始日期，包含这个日期。格式为yyyy-MM-dd|
+|endDate|String|是|结束日期，包含这个日期。格式为yyyy-MM-dd|
+|needDetail|boolean|否|是否需要包含详细数据，如果不填，默认为false|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|TemperatureRecord的JSON数组|
+
+```
+/**
+* 温度数据
+*/
+TemperatureRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    int	avgBody;//当天平均体温
+    int	avgWrist;//当天平均腕温
+    List<TemperatureItem> detail;//包含的详细数据
+    long lastModifyTime;//最后一次更新时间
+}
+```
+
 # 六、好友接口
 ## 6.1 搜索用户
 接口名称：/relation/search  
