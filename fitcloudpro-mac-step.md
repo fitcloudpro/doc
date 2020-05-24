@@ -22,6 +22,7 @@ Examples of returned data are as follows:
 Interface name: /transfer/mac-step
 Interface role: return sum steps of user who bind their device to phone and uploaded within 15 days
 Interface parameters:
+
 | Parameter | Type | Required | Description |
 |-|-|-|-|
 | accessToken | String | Yes | fitcloud provides |
@@ -30,7 +31,7 @@ Interface parameters:
 
 
 return value:  
-| Back Field | Type | Description |
+| Field | Type | Description |
 |-|-|-|
 | errorCode | int | Error code, 0 means success, other values ​​mean failure. The failure value is determined according to the error type of the actual interface. |
 | errorMsg | String | Error description. When errorCode is 0, this field is empty. |
