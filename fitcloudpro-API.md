@@ -1752,3 +1752,29 @@ Dial {
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|手环外壳url|
+
+
+## 8.11 获取自定义表盘列表
+
+接口名称：/public/dial/custom  
+接口作用：查询符合的相册表盘列表 
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|lcd|int|是|表盘LCD分辨率尺寸的ID值|
+|toolVersion|String|是|表盘工具版本|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|List|DialCustom的JSON列表|
+
+```
+DialCustom {
+    String binUrl;
+    String styleName;//样式名
+}    
+```
