@@ -1778,3 +1778,34 @@ DialCustom {
     String styleName;//样式名
 }    
 ```
+
+
+## 8.12 根据表盘编号获取新表盘
+接口名称：/public/dial/get  
+接口作用：根据一组表盘编号获取表盘信息  
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|data|String|是|表盘编号的Int数组转换的JSON字符串|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|List|Dial的JSON列表|
+
+```
+Dial {
+    int dialNum;
+    int lcd;
+    String toolVersion;
+    String binUrl;
+    int binVersion;
+    String imgUrl;
+    String deviceImgUrl;
+    String name;
+    int downloadCount;
+}    
+```
