@@ -1120,6 +1120,82 @@ TemperatureRecord{
 }
 ```
 
+
+## 5.10 压力接口
+### 5.10.1 上传压力数据
+接口名称：/pressure/upload  
+接口作用：上传一组心率数据  
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|data|String|是|UploadPressureRecord的JSON数组|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|UpdatedPressureRecord的JSON数组|
+
+```
+/**
+* 上传的压力数据
+*/
+UploadPressureRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    List<PressureItem> detail;//包含的详细数据
+}
+
+/**
+* 压力数据
+*/
+PressureItem{
+    String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
+    int	pressure;//压力值
+}
+
+/**
+* 此次更新天数据的信息
+*/
+UpdatedPressureRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    int	avgPressure;//当天平均压力值
+    long lastModifyTime;//最后一次更新时间
+
+    long previousModifyTime;//上一次更新时间
+}
+```
+
+### 5.10.2 获取某段日期的压力数据
+接口名称：/pressure/get  
+接口作用：获取某段日期用户的压力数据。如果startDate等于endDate，就相当于查询这一天的数据。  
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|startDate|String|是|起始日期，包含这个日期。格式为yyyy-MM-dd|
+|endDate|String|是|结束日期，包含这个日期。格式为yyyy-MM-dd|
+|needDetail|boolean|否|是否需要包含详细数据，如果不填，默认为false|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|PressureRecord的JSON数组|
+
+```
+/**
+* 压力数据
+*/
+PressureRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    int	avgPressure;//当天平均压力值
+    List<PressureItem> detail;//包含的详细数据
+    long lastModifyTime;//最后一次更新时间
+}
+```
+
+
 # 六、好友接口
 ## 6.1 搜索用户
 接口名称：/relation/search  
