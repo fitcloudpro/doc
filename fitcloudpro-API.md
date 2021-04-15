@@ -1856,7 +1856,7 @@ DialCustom {
 ```
 
 
-## 8.12 根据表盘编号获取新表盘
+## 8.12 根据表盘编号获取表盘
 接口名称：/public/dial/get  
 接口作用：根据一组表盘编号获取表盘信息  
 接口参数：
@@ -1884,4 +1884,46 @@ Dial {
     String name;
     int downloadCount;
 }    
+```
+
+## 8.13 根据表盘编号获取带组件的表盘
+接口名称：/public/dialnew/get  
+接口作用：根据一组表盘编号获取带组件的表盘信息  
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|data|String|是|表盘编号的Int数组转换的JSON字符串|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|List|DialNew的JSON列表|
+
+```
+DialNew {
+    int dialNum;//从bin文件解析出来
+    int lcd;//从bin文件解析出来
+    String toolVersion;//从bin文件解析出来
+    int binVersion;//从bin文件解析出来
+    String imgUrl;//表盘缩略图
+    String deviceImgUrl;//设备缩略图
+    String name;//表盘名称
+    float scale;// 上传的预览图除以从bin文件解析出来的表盘尺寸，得到的缩放值。
+    List<DialComponent> components;//组件，顺序需要和上传的一致。
+}    
+
+DialComponent{
+	float width;//从bin文件解析的组件的宽度
+	float height;//从bin文件解析的组件的高度
+	float positionX;//组件的x坐标
+	float positionY;//组件的y坐标
+	List<String> urls;//组件的图片url
+} 
+
+需要注意
+scale获取时，计算的时候x和y缩放需要一致，也就是要判断预览图的宽高比例是否符合设备的尺寸。
+组件上传图片的时候，也要根据scale判断，看从bin文件解析的尺寸 * scale，是否等于 图片尺寸。
 ```
