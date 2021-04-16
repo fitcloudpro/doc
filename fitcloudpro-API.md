@@ -1911,6 +1911,7 @@ DialNew {
     String imgUrl;//表盘缩略图
     String deviceImgUrl;//设备缩略图
     String name;//表盘名称
+    String previewImgUrl;//预览图Url
     float scale;// 上传的预览图除以从bin文件解析出来的表盘尺寸，得到的缩放值。
     List<DialComponent> components;//组件，顺序需要和上传的一致。
 }    
