@@ -394,7 +394,7 @@ BindDeviceConfig{
 }
 ```
 
-## 4.15 用户注销
+## 4.15 用户注销 (密码认证)
 接口名称：/user/selfDelete  
 接口作用：用户注销，注销后将永久无法登录。  
 接口参数：
@@ -407,6 +407,23 @@ BindDeviceConfig{
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+
+
+## 4.15 用户注销  (第三方认证)  
+接口名称：/user/selfDelete2  
+接口作用：用户注销，注销后将永久无法登录。  
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|openAppName|String|是||
+|openAppId|String|是||
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+
 
 
 # 五、数据接口
