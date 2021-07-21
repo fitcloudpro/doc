@@ -1480,12 +1480,12 @@ FriendTotalData{
 
 # 七、项目接口
 ## 7.1 版本检测
-接口名称：/public/checkVersion  
+接口名称：/public/checkVersion/v2  
 接口作用：检测是否用版本更新  
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
-|package|String|否|android应用包名|
+|androidPackage|String|否|android应用包名|
 |hardwareInfo|String|否|固件信息字符串|
 
 返回值：
@@ -1497,12 +1497,15 @@ FriendTotalData{
 
 ```
 Version{
-    String appVersion;  //app版本号
-    String appRemark;  //app版本信息
-    String appUrl;  //app下载地址
-    String hardwareInfo; //固件信息字符串
-    String hardwareRemark;  //硬件版本信息
-    String hardwareUrl;  //硬件下载地址
+    String androidVersion;  // android 版本
+    String androidRemark;   // android 备注
+    String androidUrl;      // android 下载地址
+    long androidSize;       // android 文件大小，单位byte
+    String hardwareInfo;    // 固件信息字符串
+    String hardwareType;    // 硬件类型 A: App  F: Flash  P: Patch
+    String hardwareRemark;  // 硬件版本备注
+    String hardwareUrl;     // 硬件下载地址
+    long hardwareSize;      // 固件 文件大小，单位byte
 }
 
 ```
@@ -1836,6 +1839,7 @@ Dial {
     int lcd;
     String toolVersion;
     String binUrl;
+    long binSize;        // bin文件大小，单位byte
     int binVersion;
     String imgUrl;
     String deviceImgUrl;
@@ -1896,7 +1900,8 @@ DialComponent{
 ```
 DialCustom {
     String binUrl;
-    String styleName;//样式名
+    long binSize;  // bin文件大小，单位byte
+    String styleName;  //样式名
 }    
 ```
 
