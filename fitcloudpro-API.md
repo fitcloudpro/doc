@@ -1594,7 +1594,8 @@ Weather{
 Weather{
     String text;//天气
     int code;//天气代码
-    String temperature;//温度
+    String temperature;//温
+    
     String updateTime;//更新时间
 }
 ```
@@ -1739,6 +1740,62 @@ weatherInfo {
     cloud: "91",            //云量
 }
 ```
+
+
+接口名称：/public/getHeWeather/v3  
+接口作用：根据城市ID获取天气信息  
+接口参数：  
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|cid|String|是|城市ID|
+|forecast|int|是|0:仅实时天气 3: 实时天气+3天天气 |
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|weatherInfo的JSON对象|
+
+```
+{
+    now: <weatherInfo>,
+    daily: [
+	{
+        "fxDate": "2021-09-01",
+        "sunrise": "05:41",
+        "sunset": "18:47",
+        "moonrise": "00:00",
+        "moonset": "15:09",
+        "moonPhase": "残月",
+        "tempMax": "30",
+        "tempMin": "19",
+        "iconDay": "100",
+        "textDay": "晴",
+        "iconNight": "150",
+        "textNight": "晴",
+        "wind360Day": "225",
+        "windDirDay": "西南风",
+        "windScaleDay": "1-2",
+        "windSpeedDay": "3",
+        "wind360Night": "180",
+        "windDirNight": "南风",
+        "windScaleNight": "1-2",
+        "windSpeedNight": "3",
+        "humidity": "84",
+        "precip": "0.0",
+        "pressure": "1004",
+        "vis": "25",
+        "cloud": "15",
+        "uvIndex": "7"
+      },
+      ...
+    ]
+}
+
+```
+
 
 天气代码对应表
 
