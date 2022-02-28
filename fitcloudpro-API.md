@@ -2028,8 +2028,10 @@ Dial {
 ```
 SportBinItem {
     String category,
-    Integer sportType,
+    Integer sportUiType,
+    String sportUiName,      // UI Type Name in English
     String iconUrl,
-    String binUrl
+    String binUrl,
+    Long createTime
 }   
 ```
