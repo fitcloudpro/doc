@@ -2035,3 +2035,33 @@ SportBinItem {
     Long createTime
 }   
 ```
+
+## 8.15 游戏列表
+
+接口名称：/public/game/list  
+接口作用：查询符合的游戏列表  
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|hardwareInfo|String|是|硬件字符串|
+|lcd|int|是|游戏LCD分辨率尺寸的ID值|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|List|Game的JSON列表|
+
+```
+Game {
+    int gameNum;
+    int lcd;
+    String binUrl;
+    long binSize;        // bin文件大小，单位byte
+    int binVersion;
+    String imgUrl;
+    String name;
+    int downloadCount;
+} 
