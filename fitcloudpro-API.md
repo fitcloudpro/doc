@@ -2038,7 +2038,7 @@ SportBinItem {
 
 
 ## 8.15 游戏推送接口
-接口名称：/public/game/list
+接口名称：/public/game/list  
 接口作用：根据项目号获得游戏推送信息 
 接口参数：
 
@@ -2078,7 +2078,7 @@ class GameSkin {
 
 
 ## 8.16 工具配置接口： 查询
-接口名称：/toolproject/config/list
+接口名称：/toolproject/config/list  
 接口作用：根据项目号获得子项目配置列表
 接口参数：
 
@@ -2104,7 +2104,7 @@ ToolProjectConfig {
 ```
 
 ## 8.17 工具配置接口： 创建
-接口名称：/toolproject/config/create
+接口名称：/toolproject/config/create  
 接口作用：根据项目号创建子项目
 接口参数：
 
@@ -2124,7 +2124,7 @@ ToolProjectConfig {
 
 
 ## 8.18 工具配置接口： 修改
-接口名称：/toolproject/config/update
+接口名称：/toolproject/config/update  
 接口作用：根据项目号+子项目号修改配置
 接口参数：
 
@@ -2145,7 +2145,7 @@ ToolProjectConfig {
 
 
 ## 8.19 工具配置接口： 删除
-接口名称：/toolproject/config/delete
+接口名称：/toolproject/config/delete  
 接口作用：根据项目号+子项目号删除配置
 接口参数：
 
