@@ -2036,32 +2036,128 @@ SportBinItem {
 }   
 ```
 
-## 8.15 游戏列表
 
-接口名称：/public/game/list  
-接口作用：查询符合的游戏列表  
+## 8.15 游戏推送接口
+接口名称：/public/game/list
+接口作用：根据项目号获得游戏推送信息 
 接口参数：
 
 |参数|类型|必填|说明| 
 |-|-|-|-|
-|hardwareInfo|String|是|硬件字符串|
-|lcd|int|是|游戏LCD分辨率尺寸的ID值|
+|hardwareInfo|String|是|硬件信息字符串|
+|lang|String|是|cn:中文, en: 英文|
 
 返回值：
 |返回字段|类型|说明|
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
-|data|List|Game的JSON列表|
+|data|List|GameType的JSON列表|
 
 ```
-Game {
-    int gameNum;
-    int lcd;
-    String binUrl;
-    long binSize;        // bin文件大小，单位byte
-    int binVersion;
-    String imgUrl;
-    String name;
-    int downloadCount;
-} 
+class GameType {
+    int gameType;//游戏类型
+    String name;//游戏名称（根据lang参数，返回中文或英文）
+    String description;//游戏攻略（根据lang参数，返回中文或英文）
+    int downloadCount;//下载次数
+    String imgUri;//游戏图标
+    List<GameSkin> gameSkins;
+}
+
+class GameSkin {
+    int skinNum;//游戏皮肤编号
+    String binUrl;//Bin文件下载地址
+    long binSize;//Bin文件大小
+    String imgUrl;//皮肤图片的url
+    long createTime;//添加的时间
+}
+
+```
+
+
+
+
+## 8.16 工具配置接口： 查询
+接口名称：/toolproject/config/list
+接口作用：根据项目号获得子项目配置列表
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|projectNum|String|是|项目号|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|List|工具项目配置项的JSON列表|
+
+```
+ToolProjectConfig {
+	projectNum ,  // 项目号
+	subProjectNum, // 子项目号, 从01-99
+	logoBinUrl, // logoBinUrl, 从原上传文件接口获得, type=5
+	nameConfig  // JSON字符串，执行严格JSON规范。 JSON中的属性名必须以双引号括起来。  {"name1": "value1", "name2": "value2"}
+}
+
+```
+
+## 8.17 工具配置接口： 创建
+接口名称：/toolproject/config/create
+接口作用：根据项目号创建子项目
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|projectNum|String|是|项目号|
+|logoBinUrl|String|否|参看ToolProjectConfig定义|
+|nameConfig|String|否|参看ToolProjectConfig定义|
+
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|ToolProjectConfig|工具项目配置项|
+
+
+## 8.18 工具配置接口： 修改
+接口名称：/toolproject/config/update
+接口作用：根据项目号+子项目号修改配置
+接口参数：
+
+|参数|类型|必填|说明|
+|-|-|-|-|
+|projectNum|String|是|项目号|
+|subProjectNum|String|是|子项目号|
+|logoBinUrl|String|否|参看ToolProjectConfig定义|
+|nameConfig|String|否|参看ToolProjectConfig定义|
+
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|ToolProjectConfig|工具项目配置项|
+
+
+## 8.19 工具配置接口： 删除
+接口名称：/toolproject/config/delete
+接口作用：根据项目号+子项目号删除配置
+接口参数：
+
+|参数|类型|必填|说明|
+|-|-|-|-|
+|projectNum|String|是|项目号|
+|subProjectNum|String|是|子项目号|
+
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|ToolProjectConfig|工具项目配置项|
