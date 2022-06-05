@@ -1539,7 +1539,7 @@ Version{
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
-|fileType|int|是|文件类型，0头像图片，1日志图片，2日志文件|
+|fileType|int|是|文件类型，0头像图片，1日志图片，2日志文件， 5工具配置OTA文件|
 |file|MultipartFile|是|文件MultipartFile数据|
 
 返回值：
