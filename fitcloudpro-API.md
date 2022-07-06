@@ -8,7 +8,7 @@ See git history
 # 二、通用说明
 
 ## 2.1 接口数据格式
-本文档接口数据格式沿用旧服务器格式，采用HTTP **POST** 请求方式，返回数据格式统一为JSON。
+本文档接口数据格式采用HTTP **POST** 请求方式，返回数据格式统一为JSON。
 
 返回数据例子如下：
 基本数据类型：
@@ -61,7 +61,15 @@ See git history
     1007 身份 ID 已经设置
     1008 用户在其他地方登录，token失效
     1009 Refresh Token失效
-    
+
+## 2.3 定制App区分
+
+
+在HTTP Header中。增加自定义字段`X-App-Name`用于区分不同的客制化App：
+
+> X-App-Name: MyAwesomeWare
+
+
 # 三、Token
 ## 3.1 获取token
 用户登录后，将获得token，用于请求与用户关联的数据。
