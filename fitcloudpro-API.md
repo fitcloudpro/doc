@@ -2187,7 +2187,40 @@ ToolProjectConfig {
 |data|ToolProjectConfig|工具项目配置项|
 
 
-## 8.20 工具项目查询表盘列表
+
+
+## 8.20 工具项目查询表盘项目信息
+
+接口名称：/toolproject/config/getProjectInfo  
+接口作用：查询表盘项目信息  
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|projectNum|String|是|项目号|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|List|DialProject的JSON|
+
+```
+DialProject {
+  "projectNum": "000000000xxx",
+  "lcd": "0",
+  "customer": "xxx",
+  "dialCountLimit": 0,
+  "dialFileLimit": 0,
+  "syncPublic": false
+}
+```
+
+
+
+
+## 8.21 工具项目查询表盘列表
 
 接口名称：/toolproject/dial/list  
 接口作用：查询符合的表盘列表  
