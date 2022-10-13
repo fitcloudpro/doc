@@ -1530,6 +1530,11 @@ Version{
     String hardwareRemark;  // 硬件版本备注
     String hardwareUrl;     // 硬件下载地址
     long hardwareSize;      // 固件 文件大小，单位byte
+    boolean forceUpgrade;  // 是否强制升级
+    String uiVersion;  // 文件UI版本
+    String firmwareVersion;  // 文件固件版本
+    String uiVersionScope;  // 覆盖UI版本
+    String firmwareVersionScope;  // 覆盖固件版本
 }
 
 ```
