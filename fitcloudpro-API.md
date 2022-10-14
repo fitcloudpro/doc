@@ -1511,6 +1511,7 @@ FriendTotalData{
 |-|-|-|-|
 |androidPackage|String|否|android应用包名|
 |hardwareInfo|String|否|固件信息字符串|
+|uiVersion|String|否|客户端UI版本|
 
 返回值：
 |返回字段|类型|说明|
