@@ -1980,11 +1980,12 @@ DialComponent{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|DeviceShell对象|
 
+```
 DeviceShell{
     String imgUrl,     // 设备外壳  
     String deviceName  //设备名称  
 }
-
+```
 
 ## 8.11 获取自定义表盘列表
 
