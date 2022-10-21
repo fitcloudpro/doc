@@ -1965,6 +1965,27 @@ DialComponent{
 |data|String|手环外壳url|
 
 
+接口名称：/public/device/shell/v2  
+接口作用：查询设备外壳的图片V2  
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|hardwareInfo|String|是|硬件字符串|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|DeviceShell对象|
+
+DeviceShell{
+    String imgUrl,     // 设备外壳  
+    String deviceName  //设备名称  
+}
+
+
 ## 8.11 获取自定义表盘列表
 
 接口名称：/public/dial/custom  
