@@ -1971,7 +1971,7 @@ DialComponent{
 
 |参数|类型|必填|说明| 
 |-|-|-|-|
-|hardwareInfo|String|是|硬件字符串|
+|appName|String|是|app标识|
 
 返回值：
 |返回字段|类型|说明|
