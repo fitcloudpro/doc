@@ -1978,7 +1978,7 @@ DialComponent{
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
-|data|String|DeviceShell对象|
+|data|String|DeviceShell对象数组|
 
 ```
 DeviceShell{
