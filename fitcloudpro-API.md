@@ -2264,3 +2264,17 @@ DialProject {
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|List|Dial的JSON列表|
 
+
+## 8.22 产生小程序的跳转链接  
+
+接口名称：/wxma/generateUrlLink  
+接口作用：产生小程序的跳转链接  
+接口参数：无
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|跳转URL|
+
