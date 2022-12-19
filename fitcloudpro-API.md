@@ -2269,7 +2269,11 @@ DialProject {
 
 接口名称：/wxma/generateUrlLink  
 接口作用：产生小程序的跳转链接  
-接口参数：无
+接口参数：  
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|envVersion|String|否|默认值"release"。要打开的小程序版本。正式版为 "release"，体验版为"trial"，开发版为"develop"|
 
 返回值：
 |返回字段|类型|说明|
