@@ -115,6 +115,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |channelId|long|是|所属渠道ID|
 |userName|String|是|手机号或者邮箱|
 |password|String|是|密码|
+|mobile|String|否|手机号|
 |checkAuthCode|boolean|是|是否需要检验验证码|
 |authCode|String|否|验证码|
 
