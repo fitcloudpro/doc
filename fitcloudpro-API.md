@@ -1007,13 +1007,15 @@ UploadSportRecord{
     UUID sportId;//运动ID
     String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
     int duration;//跑步持续时间
-    double distance;//跑步距离
+    double distance;//跑步距离，km，截取保留两位小数精度
     double calorie;//消耗卡路里
     int step;//总步数
     double climb;//爬升
     int locationType;//定位类型0是国内，1是国外，默认0
     int sportType;//运动类型，1是手环上骑行，2是APP上骑行，3是手环上室外跑，4是APP上室外跑，5是手环上室内跑，6是APP上室内跑
     List<SportLatLng> latLngs;//运动过程中的定位信息
+    int distanceMeters;//距离，米
+    int avgHr;//平均心率
 }
 
 SportLatLng{
