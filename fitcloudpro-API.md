@@ -1016,6 +1016,10 @@ UploadSportRecord{
     List<SportLatLng> latLngs;//运动过程中的定位信息
     int distanceMeters;//距离，米
     int avgHr;//平均心率
+    List<SportItem> items;//运动items，默认为null
+    String displayConfig;//配置项，默认为null
+    String projectNum;//项目号，默认为null
+    int goal;//目标完成度，默认-1
 }
 
 SportLatLng{
@@ -1024,7 +1028,17 @@ SportLatLng{
     long timestamp;//产生此经纬度的时间戳
     int duration;//产生此经纬度的跑步进行时间
     int isRestart; //是否为第一个点，1为是，0为否
+    double alt;//海拔，默认为0
+    int sat;//卫星数量，默认为0  
 }
+
+SportItem(
+    int dur,//产生此Item的跑步进行时间
+    int step,//步数
+    int meters,//距离，单位(米)
+    float cal,//卡路里，单位(千卡)
+    int hr,//心率值
+)
 ```
 
 ### 5.8.3 获取运动数据
@@ -1043,24 +1057,6 @@ SportLatLng{
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|SportRecord的JSON数组,不包含detail字段|
 
-```
-/**
-* 跑步数据
-*/
-SportRecord{
-    UUID sportId;//运动ID
-    String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
-    int duration;//跑步持续时间
-    double distance;//跑步距离
-    double calorie;//消耗卡路里
-    int step;//总步数
-    double climb;//爬升
-    int locationType;//定位类型0是国内，1是国外，默认0
-    int sportType;//运动类型，1是手环上骑行，2是APP上骑行，3是手环上室外跑，4是APP上室外跑，5是手环上室内跑，6是APP上室内跑
-    List<SportLatLng> latLngs;//运动过程中的定位信息
-    long lastModifyTime;//最后一次更新时间
-}
-```
 
 ### 5.8.4 获取运动详细
 接口名称：/sport/getDetail  
@@ -1099,6 +1095,7 @@ SportRecord{
 SportTotal:{
     int count;//总次数 
     double distance;//总距离
+    double calorie;//总消耗
 }
 ```
 
