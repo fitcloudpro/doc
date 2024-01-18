@@ -1094,8 +1094,10 @@ SportItem(
 */ 
 SportTotal:{
     int count;//总次数 
-    double distance;//总距离
-    double calorie;//总消耗
+    double distance;//总距离，单位km
+    double calorie;//总消耗，单位千卡
+    int step;//总步数
+    int duration;//总持续时间，单位秒
 }
 ```
 
