@@ -1538,7 +1538,7 @@ Version{
     String uiVersionScope;  // 覆盖UI版本
     String appNumScope;  // 覆盖固件版本
     boolean clientSpecificRule;  // 客户端特殊升级规则标志位
-    boolean clientSpecificRuleRemark;  // 客户端特殊升级规则备注
+    String clientSpecificRuleRemark;  // 客户端特殊升级规则备注  
 }
 
 ```
