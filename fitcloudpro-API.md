@@ -2049,8 +2049,8 @@ Dial {
 |-|-|-|-|
 |lcd|int|是|表盘LCD分辨率尺寸的ID值|
 |toolVersion|String|是|表盘工具版本|
+|platform|String|否|平台类型: gui,gui-5681,gui-8773 默认值:gui|
 
-返回值：
 |返回字段|类型|说明|
 |-|-|-|
 |errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
