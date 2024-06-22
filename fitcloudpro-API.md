@@ -1514,6 +1514,7 @@ FriendTotalData{
 |androidPackage|String|否|android应用包名|
 |hardwareInfo|String|否|固件信息字符串|
 |uiVersion|String|否|客户端UI版本|
+|otaModeEnabled|Boolean|否|默认false: 返回otaMode=0的记录。 true: 返回otaMode=0,1,2的记录|
 
 返回值：
 |返回字段|类型|说明|
@@ -1537,6 +1538,7 @@ Version{
     String uiVersionFile;  // 文件UI版本
     String uiVersionScope;  // 覆盖UI版本
     String appNumScope;  // 覆盖固件版本
+    Integer otaMode;  // 0: 默认的使用原有的方式 1: 强制普通 2: 强制静默
     boolean clientSpecificRule;  // 客户端特殊升级规则标志位
     String clientSpecificRuleRemark;  // 客户端特殊升级规则备注  
 }
