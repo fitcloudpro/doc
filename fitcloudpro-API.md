@@ -2288,3 +2288,48 @@ DialProject {
 |errorMsg|String|错误描述。errorCode为0时，此字段为空。|
 |data|String|跳转URL|
 
+
+## 8.23 用户信息上报
+
+接口名称：/public/device/report  
+接口作用：在App启动时候/设备绑定时候上报信息。如果是游客模式则直接调用，如果是注册用户，则在header中带上token，如同其他认证接口的API。  
+接口参数：
+
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|deviceId|String|是|App安装后产生的唯一标志码, UUID去除”-“号|
+|data|String|是|DeviceReport的JSON字符串|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+
+```
+DeviceReport {
+  app: {
+    String appName; //APP名称
+    String appVersion; //APP版本号
+  },
+  phone: {
+    String phoneModel; //手机型号
+    String phoneBrand; //手机品牌
+    String osVersion; //操作系统版本号
+  },
+  device: {  // 可选，手表绑定后有
+    String watchName; //手表名称
+    String projectNumber; //项目号（比如880D）
+    String firmwareVersion; //固件版本号（比如101）
+    String watchMac; //手表Mac地址
+    String uiVersion; //UI版本号
+    String hardwareString; //硬件字符串
+  },
+  user: {  // 可选，用户填报后有
+    int sex; //性别    0男，1女
+    String birthday; //出生日期，格式为yyyy/M，如1990/5
+    float height; //身高，单位cm
+    float weight; //体重，单位kg
+  }
+}    
+```
