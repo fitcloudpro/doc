@@ -185,7 +185,7 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |channelId|long|是|所属渠道ID|
 |openAppName|String|是|第三方app名称,需要统一名称，QQ，WeChat,Facebook,Sina。目前只有这4个作为第三方平台登录|
 |openAppId|String|是|第三方openId|
-|loginOnly|int|否|0:用户不存在则自动创建; 1:仅为已存在用户登录，不自动创建用户。默认0|
+|loginOnly|int|否|0:用户不存在则自动创建; 1:仅为已存在用户登录，不自动创建用户. 默认0|
 
 返回值：
 |返回字段|类型|说明|
