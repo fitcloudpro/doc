@@ -166,7 +166,8 @@ Token在HTTP Header中。形式如下 （xxx 部分为 token 内容）：
 |platform|int|是|所属平台，0安卓，1苹果，2后台|	 
 |channelId|long|是|所属渠道ID|
 |userName|String|是|手机号或者邮箱|
-|password|String|是|密码|
+|password|String|否|密码或验证码必填一个|
+|authCode|String|否|密码或验证码必填一个|
 
 返回值：
 |返回字段|类型|说明|
