@@ -1544,6 +1544,33 @@ Version{
     boolean clientSpecificRule;  // 客户端特殊升级规则标志位
     String clientSpecificRuleRemark;  // 客户端特殊升级规则备注  
 }
+```
+
+## 7.2 GPS/Modem固件版本检测
+接口名称：/public/checkOtherVersion  
+接口作用：检测GPS/Modem固件版本检测   
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|hardwareInfo|String|否|固件信息字符串|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|GpsModemVersion 列表|
+
+```
+GpsModemVersion {
+    String firmwareType // 固件类型 4G/GPS
+    String version  // 8位版本号
+    String remark  // 备注
+    String firmwareUrl // 固件下载地址
+    String coverVersion // 覆盖版本号
+    Boolean forceUpgrade // 强制升级
+    String watchDependency //手表固件依赖
+}
 
 ```
 
