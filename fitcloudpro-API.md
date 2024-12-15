@@ -1547,12 +1547,15 @@ Version{
 ```
 
 ## 7.2 GPS/Modem固件版本检测
-接口名称：/public/checkOtherVersion  
+接口名称：/public/checkGpsModemVersion  
 接口作用：检测GPS/Modem固件版本检测   
 接口参数：
 |参数|类型|必填|说明| 
 |-|-|-|-|
-|hardwareInfo|String|否|固件信息字符串|
+|hardwareInfo|String|是|固件信息字符串|
+|gpsVersion|String|否|8位 GPS 版本信息|
+|modem4gVersion|String|否|8位 4G Modem 版本信息|
+|uiVersion|String|否|UI版本号|
 
 返回值：
 |返回字段|类型|说明|
