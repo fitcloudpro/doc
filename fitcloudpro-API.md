@@ -1508,7 +1508,7 @@ FriendTotalData{
 
 # 七、项目接口
 ## 7.1 版本检测
-接口名称：/public/checkVersion/v2  
+接口名称：/public/checkVersion/v3  
 接口作用：检测是否用版本更新  
 接口参数：
 |参数|类型|必填|说明| 
@@ -1517,6 +1517,8 @@ FriendTotalData{
 |hardwareInfo|String|否|固件信息字符串|
 |uiVersion|String|否|客户端UI版本|
 |otaModeEnabled|Boolean|否|默认false: 返回otaMode=0的记录。 true: 返回otaMode=0,1,2的记录|
+|gpsVersion|String|否|8位 GPS 版本信息|
+|modem4gVersion|String|否|8位 4G Modem 版本信息|
 
 返回值：
 |返回字段|类型|说明|
@@ -1543,29 +1545,12 @@ Version{
     Integer otaMode;  // 0: 默认的使用原有的方式 1: 强制普通 2: 强制静默
     boolean clientSpecificRule;  // 客户端特殊升级规则标志位
     String clientSpecificRuleRemark;  // 客户端特殊升级规则备注  
+    List<OtherFirmwareVersion> other; //其他固件 OtherFirmwareVersion 的数组，根据其中的firmwareType判断特定类型("4G", "GPS")
 }
 ```
 
-## 7.2 GPS/Modem固件版本检测
-接口名称：/public/checkGpsModemVersion  
-接口作用：检测GPS/Modem固件版本检测   
-接口参数：
-|参数|类型|必填|说明| 
-|-|-|-|-|
-|hardwareInfo|String|是|固件信息字符串|
-|gpsVersion|String|否|8位 GPS 版本信息|
-|modem4gVersion|String|否|8位 4G Modem 版本信息|
-|uiVersion|String|否|UI版本号|
-
-返回值：
-|返回字段|类型|说明|
-|-|-|-|
-|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
-|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
-|data|String|GpsModemVersion 列表|
-
 ```
-GpsModemVersion {
+OtherFirmwareVersion {
     String firmwareType // 固件类型 4G/GPS
     String version  // 8位版本号
     String remark  // 备注
@@ -1574,7 +1559,6 @@ GpsModemVersion {
     Boolean forceUpgrade // 强制升级
     String watchDependency //手表固件依赖
 }
-
 ```
 
 # 八、其他接口
