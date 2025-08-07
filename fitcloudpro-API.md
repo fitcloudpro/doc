@@ -1255,6 +1255,71 @@ PressureRecord{
 }
 ```
 
+## 5.11 情绪数据
+APP与服务器交互类似睡眠数据。
+
+### 5.11.1 上传情绪数据
+接口名称：/emotion/upload  
+接口作用：上传一组情绪数据  
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|data|String|是|EmotionRecord的JSON数组|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|UpdateEmotionRecord的JSON数组。返回上传数据中总数据发生变化的数据|
+
+```
+* 上传的情绪数据
+EmotionRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    List<EmotionItem> detail;//包含的详细数据
+}
+
+* 情绪数据
+EmotionItem{
+    String time;//该行数据的时间，yyyy-MM-dd HH:mm:ss日期格式
+    int emotion;//情绪值，1-100
+}
+
+* 此次更新天数据的信息
+UpdateEmotionRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    long lastModifyTime;//最后一次更新时间
+}
+```
+
+### 5.11.2 获取某段日期的情绪数据
+接口名称：/emotion/get  
+接口作用：获取某段日期用户的情绪数据。如果startDate等于endDate，就相当于查询这一天的数据。  
+接口参数：
+|参数|类型|必填|说明| 
+|-|-|-|-|
+|startDate|String|是|开始时间，yyyy-MM-dd|
+|endDate|String|是|结束时间，yyyy-MM-dd|
+|needDetail|boolean|否|是否需要包含详细数据，如果不填，默认为false|
+
+返回值：
+|返回字段|类型|说明|
+|-|-|-|
+|errorCode|int|错误码，0代表成功，其他数值代表失败。根据实际接口的错误类型决定失败数值。|
+|errorMsg|String|错误描述。errorCode为0时，此字段为空。|
+|data|String|EmotionRecord的JSON数组|
+
+```
+* 情绪数据
+EmotionRecord{
+    String date;//该行数据的日期，yyyy-MM-dd日期格式
+    int avgEmotion;//当天平均情绪值
+    List<EmotionItem> detail;//包含的详细数据
+    long lastModifyTime;//最后一次更新时间
+}
+```
+
 
 # 六、好友接口
 ## 6.1 搜索用户
