@@ -2442,8 +2442,8 @@ DeviceReport {
 |参数|类型|必填|说明| 
 |-|-|-|-|
 |binUrl|String|是|成功升级的bin文件URL地址|
-|oldHardwareInfo|String|是|升级前的硬件信息字符串|
-|newHardwareInfo|String|是|升级后的硬件信息字符串|
+|hardwareInfo|String|是|升级前的硬件信息字符串|
+|newHardwareInfo|String|否|升级后的硬件信息字符串|
 |upgradeTime|Long|否|升级完成时间戳（毫秒）|
 
 返回值：
